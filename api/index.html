@@ -1,0 +1,151 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cosmic-design documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css" media="(prefers-color-scheme: dark)">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">cosmic-design documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<h1 id="cosmic-design">Cosmic Design</h1>
+<p><a href="https://github.com/design-to-release/cosmic/actions"><img src="https://github.com/design-to-release/cosmic/workflows/ci/badge.svg?branch=main" alt="Build Status" class="img-responsive"></a>
+<a href="https://github.com/design-to-release/cosmic/issues?q=label%3A%22help+wanted%22+is%3Aopen+is%3Aissue"><img src="https://img.shields.io/github/issues/design-to-release/cosmic/help%20wanted?label=issues%20need%20help&logo=github" alt="GitHub issues by-label" class="img-responsive"></a>
+<a href="https://nodejs.org/about/releases/"><img src="https://img.shields.io/static/v1?label=node&message=%3E=14.16&logo=node.js&color" alt="Minimal node version" class="img-responsive"></a>
+<a href="https://github.com/npm/cli/releases"><img src="https://img.shields.io/static/v1?label=npm&message=%3E=7.7&logo=npm&color" alt="Minimal npm version" class="img-responsive"></a></p>
+<blockquote>
+<p>🚧 ing...</p>
+</blockquote>
+<h2 id="the-repository">The Repository</h2>
+<p>Cosmic design is a concrete practice of <a href="https://design-to-release.github.io/docs">D2R</a>.
+This repository is where we develop it together with the community. Not only do we work on code and issues here, we also publish our roadmap , development guide. This source code is available to everyone under the standard <a href="LICENSE.txt">MIT license</a>.</p>
+<h2 id="about-cosmic-design">About Cosmic Design</h2>
+<blockquote>
+<p>🚧 ing...</p>
+</blockquote>
+<h2 id="how-it-works">How it works</h2>
+<p>The template required a minimum <a href="package.json">dependencies</a>. Only <strong>Vite</strong> is used for building, nothing more.</p>
+<h3 id="project-structure">Project Structure</h3>
+<p>The structure of this template is very similar to the structure of a monorepo.</p>
+<p>The entire source code of the program is divided into three modules (packages) that are bundled each independently:</p>
+<ul>
+<li><a href="src/core"><code>src/core</code></a>
+Include common dependencies, such as components, utils, ipc.</li>
+<li><a href="src/app"><code>src/app</code></a>
+Electron <a href="https://www.electronjs.org/docs/tutorial/quick-start#create-the-main-script-file"><strong>main script</strong></a>.</li>
+<li><a href="src/workbench"><code>src/workbench</code></a>
+Electron <a href="https://www.electronjs.org/docs/tutorial/quick-start#create-a-web-page"><strong>web page</strong></a>.</li>
+</ul>
+<h3 id="cosmic-components">Cosmic Components</h3>
+<ul>
+<li><a href="https://design-to-release.github.io/cosmic/components">Components StoryBook</a></li>
+<li><a href="src/core/components"><code>src/core/components</code></a></li>
+</ul>
+<h3 id="compile-app">Compile App</h3>
+<p>Next step is run  packaging and compilation a ready for distribution Electron app for macOS, Windows and Linux with &quot;auto update&quot; support out of the box. </p>
+<p>To do this, using the <a href="https://github.com/electron-userland/electron-builder">electron-builder</a>:</p>
+<ul>
+<li>In npm script <code>compile</code>: This script is configured to compile the application as quickly as possible. It is not ready for distribution, is compiled only for the current platform and is used for debugging.</li>
+<li>In GitHub Action: The application is compiled for any platform and ready-to-distribute files are automatically added to the draft GitHub release. </li>
+</ul>
+<h2 id="contribution">Contribution</h2>
+<p>See Wiki <strong><a href="https://github.com/design-to-release/cosmic/wiki/Contributing">Contributing</a></strong></p>
+<ul>
+<li><a href="https://github.com/design-to-release/cosmic/wiki/Source-Code-Organization">Source Code Organization</a></li>
+<li>User Interface<ul>
+<li><a href="https://github.com/design-to-release/cosmic/wiki/Color-Set">Color Set</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+       
+       <script type="module" src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
