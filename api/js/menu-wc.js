@@ -61,6 +61,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/AppearanceService.html" data-type="entity-link" >AppearanceService</a>
                             </li>
                             <li class="link">
+                                <a href="classes/classBuilder.html" data-type="entity-link" >classBuilder</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/ColorRef.html" data-type="entity-link" >ColorRef</a>
                             </li>
                             <li class="link">
@@ -98,10 +101,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
+                                <a href="interfaces/classConfig.html" data-type="entity-link" >classConfig</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/ISettings.html" data-type="entity-link" >ISettings</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/MenuItemConfig.html" data-type="entity-link" >MenuItemConfig</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/stateConfig.html" data-type="entity-link" >stateConfig</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/WeightMap.html" data-type="entity-link" >WeightMap</a>
                             </li>
                         </ul>
                     </li>

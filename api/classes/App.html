@@ -351,8 +351,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="89"
-                            class="link-to-prism">src/workbench/desktop/app.ts:89</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">src/workbench/desktop/app.ts:95</a></div>
                 </td>
             </tr>
 
@@ -536,8 +536,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="112"
-                            class="link-to-prism">src/workbench/desktop/app.ts:112</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="118"
+                            class="link-to-prism">src/workbench/desktop/app.ts:118</a></div>
                 </td>
             </tr>
 
@@ -604,8 +604,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="104"
-                            class="link-to-prism">src/workbench/desktop/app.ts:104</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">src/workbench/desktop/app.ts:110</a></div>
                 </td>
             </tr>
 
@@ -672,8 +672,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="124"
-                            class="link-to-prism">src/workbench/desktop/app.ts:124</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">src/workbench/desktop/app.ts:130</a></div>
                 </td>
             </tr>
 
@@ -814,8 +814,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="120"
-                            class="link-to-prism">src/workbench/desktop/app.ts:120</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="126"
+                            class="link-to-prism">src/workbench/desktop/app.ts:126</a></div>
                 </td>
             </tr>
 
@@ -913,8 +913,13 @@ export default class App {
     menu.init(&#x27;测试&#x27;, [{
       title: &#x27;请打开文件&#x27;,
       type: MenuItemType.item,
-      callback: (menuItem, context) &#x3D;&gt; {
-        menu.registerItem({title: &#x27;文件&#x27;, type: MenuItemType.item, callback: (menuItem, context) &#x3D;&gt; console.log(menuItem)}, 1);
+      callback: (_menuItem, _context) &#x3D;&gt; {
+        menu.registerItem({
+          title: &#x27;文件&#x27;,
+          type: MenuItemType.item, 
+          /* eslint-disable no-console */ 
+          callback: (menuItem, context) &#x3D;&gt; console.log(menuItem),
+        }, 1);
       },
     }, {
       title: &#x27;测试2&#x27;,
@@ -925,6 +930,7 @@ export default class App {
     }, {
       title: &#x27;测试3&#x27;,
       type: MenuItemType.item,
+      /* eslint-disable no-console */ 
       callback: (menuItem, context) &#x3D;&gt; console.log(menuItem),
     }]);
   }
