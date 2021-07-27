@@ -89,10 +89,6 @@
                                     <span class="modifier">Private</span>
                                 <a href="#context" >context</a>
                             </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#menuGroup" >menuGroup</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -164,7 +160,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/workbench/desktop/app.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/workbench/desktop/app.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -260,33 +256,6 @@
 
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="menuGroup"></a>
-                    <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>menuGroup</b></span>
-                        <a href="#menuGroup"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../classes/MenuGroup.html" target="_self" >MenuGroup</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/workbench/desktop/app.ts:16</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
 </section>
 
             <section>
@@ -314,8 +283,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/workbench/desktop/app.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/workbench/desktop/app.ts:22</a></div>
                 </td>
             </tr>
 
@@ -351,8 +320,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="95"
-                            class="link-to-prism">src/workbench/desktop/app.ts:95</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/workbench/desktop/app.ts:75</a></div>
                 </td>
             </tr>
 
@@ -499,8 +468,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/workbench/desktop/app.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/workbench/desktop/app.ts:28</a></div>
                 </td>
             </tr>
 
@@ -536,8 +505,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="118"
-                            class="link-to-prism">src/workbench/desktop/app.ts:118</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">src/workbench/desktop/app.ts:98</a></div>
                 </td>
             </tr>
 
@@ -604,8 +573,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="110"
-                            class="link-to-prism">src/workbench/desktop/app.ts:110</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">src/workbench/desktop/app.ts:90</a></div>
                 </td>
             </tr>
 
@@ -672,8 +641,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="130"
-                            class="link-to-prism">src/workbench/desktop/app.ts:130</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">src/workbench/desktop/app.ts:110</a></div>
                 </td>
             </tr>
 
@@ -814,8 +783,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="126"
-                            class="link-to-prism">src/workbench/desktop/app.ts:126</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="106"
+                            class="link-to-prism">src/workbench/desktop/app.ts:106</a></div>
                 </td>
             </tr>
 
@@ -844,19 +813,18 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Container } from &#x27;inversify&#x27;;
 import { AppearanceType } from &#x27;@cosmic/core/common/appearance&#x27;;
 import { AppearanceService } from &#x27;@cosmic/workbench/services/appearance-service&#x27;;
+import { MenuGroupService } from &#x27;@cosmic/workbench/services/menu-group-service&#x27;;
+import { BaseMenu } from &#x27;./base-menu/base-menu&#x27;;
+import {applicationMenus} from &#x27;./base-menu/config&#x27;;
 import Navigation from &#x27;../ui/components/navigation/navigation-bar.svelte&#x27;;
 import StatusBar from &#x27;../ui/components/status/status-bar.svelte&#x27;;
 import ResourcePage from &#x27;../ui/components/resource/resource.svelte&#x27;;
 import PropertyPanel from &#x27;../ui/components/property/proterty.svelte&#x27;;
 import SplitBoardView from &#x27;@cosmic/core/browser/layout/split-board.view&#x27;;
 import SplitItemView from &#x27;@cosmic/core/browser/layout/split-item.view&#x27;;
-import getMenuGroup, {MenuItemType} from &#x27;./menu&#x27;;
-import type { MenuGroup } from &#x27;./menu&#x27;;
-
 export default class App {
   private container: Container;
   private context &#x3D; new Map&lt;string, Container&gt;();
-  private menuGroup!: MenuGroup;
   constructor(private root: HTMLElement) {
     this.container &#x3D; new Container({ defaultScope: &#x27;Singleton&#x27; });
     this.context.set(&#x27;container&#x27;, this.container);
@@ -871,6 +839,7 @@ export default class App {
 
   initPreferences(): void {
     this.container.bind(AppearanceService).to(AppearanceService);
+    this.container.bind(MenuGroupService).to(MenuGroupService);
   }
 
   initStyle(): void {
@@ -908,31 +877,11 @@ export default class App {
 
   initMenus(): void {
     const header &#x3D; document.querySelector(&#x27;#main-header&#x27;);
-    this.menuGroup &#x3D; getMenuGroup(header as HTMLElement);
-    const menu &#x3D; this.menuGroup.getMenuInsatance();
-    menu.init(&#x27;测试&#x27;, [{
-      title: &#x27;请打开文件&#x27;,
-      type: MenuItemType.item,
-      callback: (_menuItem, _context) &#x3D;&gt; {
-        menu.registerItem({
-          title: &#x27;文件&#x27;,
-          type: MenuItemType.item, 
-          /* eslint-disable no-console */ 
-          callback: (menuItem, context) &#x3D;&gt; console.log(menuItem),
-        }, 1);
-      },
-    }, {
-      title: &#x27;测试2&#x27;,
-      type: MenuItemType.item,
-      callback: (menuItem, context) &#x3D;&gt; {
-        menu.removeItem(0);
-      },
-    }, {
-      title: &#x27;测试3&#x27;,
-      type: MenuItemType.item,
-      /* eslint-disable no-console */ 
-      callback: (menuItem, context) &#x3D;&gt; console.log(menuItem),
-    }]);
+    const groupMenu &#x3D; this.container.get(MenuGroupService);
+    groupMenu.initContainer(header as HTMLElement);
+    for (const menu of applicationMenus) {
+      groupMenu.getMenuInsatance().init(menu.title, menu.items);
+    }
   }
 
   initFlowTable(): void {

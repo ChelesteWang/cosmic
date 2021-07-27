@@ -61,6 +61,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/AppearanceService.html" data-type="entity-link" >AppearanceService</a>
                             </li>
                             <li class="link">
+                                <a href="classes/BaseMenu.html" data-type="entity-link" >BaseMenu</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/classBuilder.html" data-type="entity-link" >classBuilder</a>
                             </li>
                             <li class="link">
@@ -70,7 +73,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Menu.html" data-type="entity-link" >Menu</a>
                             </li>
                             <li class="link">
-                                <a href="classes/MenuGroup.html" data-type="entity-link" >MenuGroup</a>
+                                <a href="classes/MenuGroupService.html" data-type="entity-link" >MenuGroupService</a>
                             </li>
                             <li class="link">
                                 <a href="classes/MenuItem.html" data-type="entity-link" >MenuItem</a>
