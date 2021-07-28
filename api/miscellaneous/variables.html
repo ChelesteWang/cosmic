@@ -209,27 +209,27 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>[
-    {
-        title: &#x27;文件&#x27;,
-        items: [
-            {
-                title: &#x27;打开文件&#x27;,
-                type: MenuItemType.group,
-                callback: (item, context) &#x3D;&gt; console.log(item),
-            },
-            {
-                title: &#x27;保存&#x27;,
-                type: MenuItemType.group,
-                callback: (item, context) &#x3D;&gt; console.log(item),
-            },
+  {
+    title: &#x27;文件&#x27;,
+    items: [
+      {
+        title: &#x27;打开文件&#x27;,
+        type: MenuItemType.group,
+        callback: (item, context) &#x3D;&gt; console.log(item),
+      },
+      {
+        title: &#x27;保存&#x27;,
+        type: MenuItemType.group,
+        callback: (item, context) &#x3D;&gt; console.log(item),
+      },
 
-            {
-                title: &#x27;另存为&#x27;,
-                type: MenuItemType.group,
-                callback: (item, context) &#x3D;&gt; console.log(item),
-            },
-        ],
-    },
+      {
+        title: &#x27;另存为&#x27;,
+        type: MenuItemType.group,
+        callback: (item, context) &#x3D;&gt; console.log(item),
+      },
+    ],
+  },
 ]</code>
                     </td>
                 </tr>
@@ -714,7 +714,7 @@
       devTools: isProd ? false : true,
       contextIsolation: true,
       enableRemoteModule: false,
-      preload:  join(__dirname, &#x27;preload.js&#x27;),
+      preload: join(__dirname, &#x27;preload.js&#x27;),
     },
   });
 
@@ -722,9 +722,9 @@
     // process.env.NODE_ENV &#x3D;&#x3D;&#x3D; &quot;production&quot;
     isProd
       ? // in production, use the statically build version of our application
-      &#x60;file://${join(__dirname, &#x27;dist/workbench/desktop/&#x27;, &#x27;index.html&#x27;)}&#x60;
+        &#x60;file://${join(__dirname, &#x27;dist/workbench/desktop/&#x27;, &#x27;index.html&#x27;)}&#x60;
       : // in dev, target the host and port of the local rollup web server
-      &#x27;http://localhost:5000&#x27;;
+        &#x27;http://localhost:5000&#x27;;
 
   mainWindow.loadURL(url).catch((err: any) &#x3D;&gt; {
     logger.error(JSON.stringify(err));
@@ -828,12 +828,12 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
-    &#x27;undefined&#x27;: 100,
-    &#x27;default&#x27;: 200,
-    &#x27;focus&#x27;: 300,
-    &#x27;hover&#x27;: 400,
-    &#x27;active&#x27;: 600,
-    &#x27;disabled&#x27;: 800,
+  undefined: 100,
+  default: 200,
+  focus: 300,
+  hover: 400,
+  active: 600,
+  disabled: 800,
 }</code>
                     </td>
                 </tr>
@@ -951,17 +951,17 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>(): string &#x3D;&gt; {
-    const s: string[] | number[] &#x3D; [];
-    const hexDigits &#x3D; &#x27;0123456789abcdef&#x27;;
-    for (let i &#x3D; 0; i &lt; 36; i++) {
-        s[i] &#x3D; hexDigits.substr(Math.floor(Math.random() * 0x10), 1) + &#x27;&#x27;;
-    }
-    s[14] &#x3D; &#x27;4&#x27;;  // bits 12-15 of the time_hi_and_version field to 0010
-    /* eslint-disable no-bitwise */
-    s[19] &#x3D; hexDigits.substr((Number(s[19]) &amp; 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
-    s[8] &#x3D; s[13] &#x3D; s[18] &#x3D; s[23] &#x3D; &#x27;-&#x27;;
-    const _uuid &#x3D; s.join(&#x27;&#x27;);
-    return _uuid;
+  const s: string[] | number[] &#x3D; [];
+  const hexDigits &#x3D; &#x27;0123456789abcdef&#x27;;
+  for (let i &#x3D; 0; i &lt; 36; i++) {
+    s[i] &#x3D; hexDigits.substr(Math.floor(Math.random() * 0x10), 1) + &#x27;&#x27;;
+  }
+  s[14] &#x3D; &#x27;4&#x27;; // bits 12-15 of the time_hi_and_version field to 0010
+  /* eslint-disable no-bitwise */
+  s[19] &#x3D; hexDigits.substr((Number(s[19]) &amp; 0x3) | 0x8, 1); // bits 6-7 of the clock_seq_hi_and_reserved to 01
+  s[8] &#x3D; s[13] &#x3D; s[18] &#x3D; s[23] &#x3D; &#x27;-&#x27;;
+  const _uuid &#x3D; s.join(&#x27;&#x27;);
+  return _uuid;
 }</code>
                     </td>
                 </tr>

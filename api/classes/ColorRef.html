@@ -376,13 +376,13 @@ export default class ColorRef {
   private darkColor: Color;
 
   constructor(anyColor: Color, lightColor?: Color, darkColor?: Color) {
-    this.anyColor &#x3D;  anyColor;
+    this.anyColor &#x3D; anyColor;
     this.lightColor &#x3D; lightColor || anyColor;
     this.darkColor &#x3D; darkColor || anyColor;
   }
 
   public color(appearanceType: AppearanceType) {
-    switch(appearanceType) {
+    switch (appearanceType) {
       case AppearanceType.any:
         return this.anyColor;
       case AppearanceType.light:
@@ -394,7 +394,6 @@ export default class ColorRef {
     }
   }
 }
-
 </code></pre>
     </div>
 </div>

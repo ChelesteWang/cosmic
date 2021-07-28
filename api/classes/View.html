@@ -423,24 +423,25 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">type FlowValue &#x3D; &#x27;1&#x27; | &#x27;auto&#x27; | &#x27;initial&#x27; | &#x27;none&#x27;;
 
 export default class View {
-    public root: HTMLElement;
-    constructor(root?: HTMLElement) {
-        this.root &#x3D; root || document.createElement(&#x27;div&#x27;);
-    }
-    setFlow(type: FlowValue) {
-        this.root.classList.remove(&#x27;flex-1&#x27;, &#x27;flex-auto&#x27;, &#x27;flex-initial&#x27;, &#x27;flex-none&#x27;);
-        this.root.classList.add(&#x60;flex-${type}&#x60;);
-        return this;
-    }
-    append(child: HTMLElement) {
-        this.root.appendChild(child);
-        return this;
-    }
-    prepend(...childs: HTMLElement[]) {
-        this.root.prepend(...childs);
-        return this;
-    }
-}</code></pre>
+  public root: HTMLElement;
+  constructor(root?: HTMLElement) {
+    this.root &#x3D; root || document.createElement(&#x27;div&#x27;);
+  }
+  setFlow(type: FlowValue) {
+    this.root.classList.remove(&#x27;flex-1&#x27;, &#x27;flex-auto&#x27;, &#x27;flex-initial&#x27;, &#x27;flex-none&#x27;);
+    this.root.classList.add(&#x60;flex-${type}&#x60;);
+    return this;
+  }
+  append(child: HTMLElement) {
+    this.root.appendChild(child);
+    return this;
+  }
+  prepend(...childs: HTMLElement[]) {
+    this.root.prepend(...childs);
+    return this;
+  }
+}
+</code></pre>
     </div>
 </div>
 

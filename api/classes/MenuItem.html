@@ -317,39 +317,40 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {uuid} from &#x27;../utils&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { uuid } from &#x27;../utils&#x27;;
 /* eslint-disable no-shadow */
 export enum MenuItemType {
-    group,
-    item
+  group,
+  item,
 }
 
 export type MenuCommonFunction &#x3D; (menu: MenuItem, context: any) &#x3D;&gt; void;
 
 export interface MenuItemConfig {
-    title: string;
-    type: MenuItemType;
-    callback: MenuCommonFunction;
-    command?: string;
+  title: string;
+  type: MenuItemType;
+  callback: MenuCommonFunction;
+  command?: string;
 }
 
 export class MenuItem {
-    public readonly id!: string;
-    private title!:string;
-    private type!: MenuItemType;
-    private callback: MenuCommonFunction;
-    private children!: MenuItem[];
-    constructor(config: MenuItemConfig) {
-        this.id &#x3D; uuid();
-        const {title, type, callback} &#x3D; config;
-        if (type &#x3D;&#x3D;&#x3D; MenuItemType.group) {
-            this.children &#x3D; [];
-        }
-        this.title &#x3D; title;
-        this.type &#x3D; type;
-        this.callback &#x3D; callback;
+  public readonly id!: string;
+  private title!: string;
+  private type!: MenuItemType;
+  private callback: MenuCommonFunction;
+  private children!: MenuItem[];
+  constructor(config: MenuItemConfig) {
+    this.id &#x3D; uuid();
+    const { title, type, callback } &#x3D; config;
+    if (type &#x3D;&#x3D;&#x3D; MenuItemType.group) {
+      this.children &#x3D; [];
     }
-}</code></pre>
+    this.title &#x3D; title;
+    this.type &#x3D; type;
+    this.callback &#x3D; callback;
+  }
+}
+</code></pre>
     </div>
 </div>
 

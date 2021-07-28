@@ -404,37 +404,35 @@ import { Menu } from &#x27;../desktop/menu&#x27;;
 
 @injectable()
 export class MenuGroupService {
-    private container!: HTMLElement;
-    private meuns!: Menu[];
-    constructor() {
-        this.meuns &#x3D; [];
+  private container!: HTMLElement;
+  private meuns!: Menu[];
+  constructor() {
+    this.meuns &#x3D; [];
+  }
+
+  public initContainer(container: HTMLElement): void {
+    if (this.container) {
+      return;
     }
+    this.container &#x3D; container;
+  }
 
-    public initContainer(container: HTMLElement): void {
-        if (this.container) {
-            return;
-        }
-        this.container &#x3D; container;
-    }
+  public getMenuInsatance(): Menu {
+    const menuContainer &#x3D; document.createElement(&#x27;div&#x27;);
+    const id &#x3D; Date.now() + &#x27;&#x27; + this.meuns.length;
+    this.container.append(menuContainer);
+    const menu &#x3D; new Menu(menuContainer, id);
+    this.meuns.push(menu);
+    return menu;
+  }
 
-    public getMenuInsatance(): Menu {
-        const menuContainer &#x3D; document.createElement(&#x27;div&#x27;);
-        const id &#x3D; Date.now() + &#x27;&#x27; + this.meuns.length;
-        this.container.append(menuContainer);
-        const menu &#x3D; new Menu(menuContainer, id);
-        this.meuns.push(menu);
-        return menu;
-    }
-
-    public removeMenuInstances(menu: Menu): void {
-        this.container.removeChild(menu.container);
-        this.meuns &#x3D; this.meuns.filter(item &#x3D;&gt; item.id &#x3D;&#x3D;&#x3D; menu.id);
-        this.container.removeChild(menu.container);
-    }
-
-
-
-}</code></pre>
+  public removeMenuInstances(menu: Menu): void {
+    this.container.removeChild(menu.container);
+    this.meuns &#x3D; this.meuns.filter((item) &#x3D;&gt; item.id &#x3D;&#x3D;&#x3D; menu.id);
+    this.container.removeChild(menu.container);
+  }
+}
+</code></pre>
     </div>
 </div>
 

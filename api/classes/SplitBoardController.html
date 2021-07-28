@@ -473,8 +473,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/core/browser/layout/split-board.controller.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/core/browser/layout/split-board.controller.ts:54</a></div>
                 </td>
             </tr>
 
@@ -512,8 +512,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">src/core/browser/layout/split-board.controller.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/core/browser/layout/split-board.controller.ts:83</a></div>
                 </td>
             </tr>
 
@@ -594,8 +594,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">src/core/browser/layout/split-board.controller.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">src/core/browser/layout/split-board.controller.ts:73</a></div>
                 </td>
             </tr>
 
@@ -676,8 +676,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/core/browser/layout/split-board.controller.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/core/browser/layout/split-board.controller.ts:32</a></div>
                 </td>
             </tr>
 
@@ -746,8 +746,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">src/core/browser/layout/split-board.controller.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/core/browser/layout/split-board.controller.ts:47</a></div>
                 </td>
             </tr>
 
@@ -840,8 +840,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">src/core/browser/layout/split-board.controller.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/core/browser/layout/split-board.controller.ts:62</a></div>
                 </td>
             </tr>
 
@@ -872,137 +872,139 @@ import type SplitBoardView from &#x27;./split-board.view&#x27;;
 import type SplitItemView from &#x27;./split-item.view&#x27;;
 
 export default class SplitBoardController {
-    private expandMoveHandler!: (event: MouseEvent) &#x3D;&gt; void;
-    private expandLeaveHandler!: (event: MouseEvent) &#x3D;&gt; void;
-    private expandMouseUpHandler!: (event: MouseEvent) &#x3D;&gt; void;
+  private expandMoveHandler!: (event: MouseEvent) &#x3D;&gt; void;
+  private expandLeaveHandler!: (event: MouseEvent) &#x3D;&gt; void;
+  private expandMouseUpHandler!: (event: MouseEvent) &#x3D;&gt; void;
 
-    private startX &#x3D; 0;
-    private startY &#x3D; 0;
-    private activeId &#x3D; -1;
+  private startX &#x3D; 0;
+  private startY &#x3D; 0;
+  private activeId &#x3D; -1;
 
-    private expandActive &#x3D; false;
-    private expandType &#x3D; 0; // 是否超过偏移值 0 / 1 expand hor | 2 expand ver | 3 merge hor | 4 merge ver
+  private expandActive &#x3D; false;
+  private expandType &#x3D; 0; // 是否超过偏移值 0 / 1 expand hor | 2 expand ver | 3 merge hor | 4 merge ver
 
-    constructor(private view: SplitBoardView) {
-        this.expandMoveHandler &#x3D; (event: MouseEvent) &#x3D;&gt; {
-            this.liveResize(event.clientX, event.clientY);
-            this.checkExpandState(event.clientX, event.clientY);
-        };
-        this.expandLeaveHandler &#x3D; (event: MouseEvent) &#x3D;&gt; { this.unactiveExpand(); };
-        this.expandMouseUpHandler &#x3D; (event: MouseEvent) &#x3D;&gt; { this.unactiveExpand(); };
-        this.view.root.addEventListener(&#x27;mousedown&#x27;, (event: MouseEvent) &#x3D;&gt; {
-            this.onMouseDown(event);
-        });
+  constructor(private view: SplitBoardView) {
+    this.expandMoveHandler &#x3D; (event: MouseEvent) &#x3D;&gt; {
+      this.liveResize(event.clientX, event.clientY);
+      this.checkExpandState(event.clientX, event.clientY);
+    };
+    this.expandLeaveHandler &#x3D; (event: MouseEvent) &#x3D;&gt; {
+      this.unactiveExpand();
+    };
+    this.expandMouseUpHandler &#x3D; (event: MouseEvent) &#x3D;&gt; {
+      this.unactiveExpand();
+    };
+    this.view.root.addEventListener(&#x27;mousedown&#x27;, (event: MouseEvent) &#x3D;&gt; {
+      this.onMouseDown(event);
+    });
+  }
+  public onMouseDown(event: MouseEvent): void {
+    const target &#x3D; event.target as HTMLElement;
+    let index &#x3D; -1;
+    this.view.items.forEach((item, i) &#x3D;&gt; {
+      if (target &amp;&amp; item.root &#x3D;&#x3D; target.parentElement &amp;&amp; target.classList.contains(&#x27;split-expand&#x27;)) index &#x3D; i;
+    });
+    if (index &#x3D;&#x3D;&#x3D; -1) {
+      return;
     }
-    public onMouseDown(event: MouseEvent): void {
-        const target &#x3D; event.target as HTMLElement;
-        let index &#x3D; -1;
-        this.view.items.forEach((item, i) &#x3D;&gt; {
-            if (target &amp;&amp; item.root &#x3D;&#x3D; target.parentElement &amp;&amp; target.classList.contains(&#x27;split-expand&#x27;)) index &#x3D; i;
-        });
-        if (index &#x3D;&#x3D;&#x3D; -1) {
-            return;
-        }
-        if (index &gt; -1) {
-            this.setActiveState(index, event.clientX, event.clientY);
-        }
-        event.preventDefault();
-        event.stopPropagation();
+    if (index &gt; -1) {
+      this.setActiveState(index, event.clientX, event.clientY);
     }
-    public setActiveState(index: number, startX: number, startY: number) {
-        // 锚点mousedown
-        this.startX &#x3D; startX;
-        this.startY &#x3D; startY;
-        this.activeExpand();
-        this.activeId &#x3D; index;
+    event.preventDefault();
+    event.stopPropagation();
+  }
+  public setActiveState(index: number, startX: number, startY: number) {
+    // 锚点mousedown
+    this.startX &#x3D; startX;
+    this.startY &#x3D; startY;
+    this.activeExpand();
+    this.activeId &#x3D; index;
+  }
+  private activeExpand() {
+    this.view.root.addEventListener(&#x27;mousemove&#x27;, this.expandMoveHandler);
+    this.view.root.addEventListener(&#x27;mouseleave&#x27;, this.expandLeaveHandler);
+    this.view.root.addEventListener(&#x27;mouseup&#x27;, this.expandMouseUpHandler);
+    this.expandActive &#x3D; true;
+    this.expandType &#x3D; 0;
+    this.view.setCursor(&#x27;crosshair&#x27;);
+  }
+  private unactiveExpand() {
+    if (this.expandActive) {
+      this.view.root.removeEventListener(&#x27;mousemove&#x27;, this.expandMoveHandler);
+      this.view.root.removeEventListener(&#x27;mouseleave&#x27;, this.expandLeaveHandler);
+      this.view.root.removeEventListener(&#x27;mouseup&#x27;, this.expandMouseUpHandler);
+      this.view.cancelForMerge();
+      this.expandActive &#x3D; false;
+      this.expandType &#x3D; 0;
+      this.view.setCursor(&#x27;&#x27;);
     }
-    private activeExpand() {
-        this.view.root.addEventListener(&#x27;mousemove&#x27;, this.expandMoveHandler);
-        this.view.root.addEventListener(&#x27;mouseleave&#x27;, this.expandLeaveHandler);
-        this.view.root.addEventListener(&#x27;mouseup&#x27;, this.expandMouseUpHandler);
-        this.expandActive &#x3D; true;
-        this.expandType &#x3D; 0;
-        this.view.setCursor(&#x27;crosshair&#x27;);
+  }
+  private liveResize(clientX: number, clientY: number) {
+    const item &#x3D; this.view.items[this.activeId];
+    if (this.expandType &#x3D;&#x3D; 1 &amp;&amp; this.view.direction &#x3D;&#x3D; directionType.col) {
+      // horizontal expand column
+      this.view.resizeAt(this.activeId, item.root.getBoundingClientRect().left, item.root.clientWidth, clientX);
+    } else if (this.expandType &#x3D;&#x3D; 2 &amp;&amp; this.view.direction &#x3D;&#x3D; directionType.row) {
+      // vertical expand row
+      this.view.resizeAt(this.activeId, item.root.getBoundingClientRect().top, item.root.clientHeight, clientY);
     }
-    private unactiveExpand() {
-        if (this.expandActive) {
-            this.view.root.removeEventListener(&#x27;mousemove&#x27;, this.expandMoveHandler);
-            this.view.root.removeEventListener(&#x27;mouseleave&#x27;, this.expandLeaveHandler);
-            this.view.root.removeEventListener(&#x27;mouseup&#x27;, this.expandMouseUpHandler);
-            this.view.cancelForMerge();
-            this.expandActive &#x3D; false;
-            this.expandType &#x3D; 0;
-            this.view.setCursor(&#x27;&#x27;);
-        }
+  }
+  public checkExpandState(clientX: number, clientY: number) {
+    const offsetX &#x3D; this.startX - clientX;
+    const offsetY &#x3D; this.startY - clientY;
+    /** expand mode */
+    if (this.expandType &#x3D;&#x3D; 0 &amp;&amp; offsetX &gt; 0 &amp;&amp; offsetY &gt; 0 &amp;&amp; (offsetX &gt; 5 || offsetY &gt; 5)) {
+      if (offsetX &gt; offsetY) {
+        this.view.setCursor(&#x27;col-resize&#x27;);
+      } else {
+        this.view.setCursor(&#x27;row-resize&#x27;);
+      }
     }
-    private liveResize(clientX: number, clientY: number) {
-        const item &#x3D; this.view.items[this.activeId];
-        if (this.expandType &#x3D;&#x3D; 1 &amp;&amp; this.view.direction &#x3D;&#x3D; directionType.col) {
-            // horizontal expand column
-            this.view.resizeAt(this.activeId, item.root.getBoundingClientRect().left, item.root.clientWidth, clientX);
-        } else if (this.expandType &#x3D;&#x3D; 2 &amp;&amp; this.view.direction &#x3D;&#x3D; directionType.row) {
-            // vertical expand row
-            this.view.resizeAt(this.activeId, item.root.getBoundingClientRect().top, item.root.clientHeight, clientY);
-        }
-
+    /** merge mode */
+    if (offsetX &lt; -5) {
+      this.expandType &#x3D; 3;
+      this.view.setCursor(&#x27;e-resize&#x27;);
+      this.view.waitForMergeAtItem(this.activeId + 1, &#x27;e&#x27;);
+      return;
     }
-    public checkExpandState(clientX: number, clientY: number) {
-        const offsetX &#x3D; this.startX - clientX;
-        const offsetY &#x3D; this.startY - clientY;
-        /** expand mode */
-        if (this.expandType &#x3D;&#x3D; 0 &amp;&amp; offsetX &gt; 0 &amp;&amp; offsetY &gt; 0 &amp;&amp; (offsetX &gt; 5 || offsetY &gt; 5)) {
-            if (offsetX &gt; offsetY) {
-                this.view.setCursor(&#x27;col-resize&#x27;);
-            } else {
-                this.view.setCursor(&#x27;row-resize&#x27;);
-            }
-        }
-        /** merge mode */
-        if (offsetX &lt; -5) {
-            this.expandType &#x3D; 3;
-            this.view.setCursor(&#x27;e-resize&#x27;);
-            this.view.waitForMergeAtItem(this.activeId + 1, &#x27;e&#x27;);
-            return;
-        }
-        if (this.expandType &#x3D;&#x3D; 3 &amp;&amp; offsetX &gt; 5) {
-            this.view.setCursor(&#x27;w-resize&#x27;);
-            this.view.waitForMergeAtItem(this.activeId, &#x27;w&#x27;);
-            return;
-        }
-
-        if (offsetY &lt; -5) {
-            this.expandType &#x3D; 4;
-            this.view.setCursor(&#x27;s-resize&#x27;);
-            this.view.waitForMergeAtItem(this.activeId + 1, &#x27;s&#x27;);
-            return;
-        }
-        if (this.expandType &#x3D;&#x3D; 4 &amp;&amp; offsetY &gt; 5) {
-            this.view.setCursor(&#x27;n-resize&#x27;);
-            this.view.waitForMergeAtItem(this.activeId, &#x27;n&#x27;);
-            return;
-        }
-
-        if (this.expandType) return;
-        /** do expand */
-        if (offsetX &gt; 30) {
-            this.expandType &#x3D; 1;
-            this.view.setCursor(&#x27;col-resize&#x27;);
-            this.view.splitColumnAt(this.activeId, clientX, clientY);
-            return;
-        }
-        if (offsetY &gt; 30) {
-            this.expandType &#x3D; 2;
-            this.view.setCursor(&#x27;row-resize&#x27;);
-            this.view.splitRowAt(this.activeId, clientX, clientY);
-        }
-        if (
-            (this.expandType &#x3D;&#x3D; 1 &amp;&amp; this.view.direction &#x3D;&#x3D; directionType.row) ||
-            (this.expandType &#x3D;&#x3D; 2 &amp;&amp; this.view.direction &#x3D;&#x3D; directionType.col)
-        ) {
-            this.unactiveExpand();
-        }
+    if (this.expandType &#x3D;&#x3D; 3 &amp;&amp; offsetX &gt; 5) {
+      this.view.setCursor(&#x27;w-resize&#x27;);
+      this.view.waitForMergeAtItem(this.activeId, &#x27;w&#x27;);
+      return;
     }
 
+    if (offsetY &lt; -5) {
+      this.expandType &#x3D; 4;
+      this.view.setCursor(&#x27;s-resize&#x27;);
+      this.view.waitForMergeAtItem(this.activeId + 1, &#x27;s&#x27;);
+      return;
+    }
+    if (this.expandType &#x3D;&#x3D; 4 &amp;&amp; offsetY &gt; 5) {
+      this.view.setCursor(&#x27;n-resize&#x27;);
+      this.view.waitForMergeAtItem(this.activeId, &#x27;n&#x27;);
+      return;
+    }
+
+    if (this.expandType) return;
+    /** do expand */
+    if (offsetX &gt; 30) {
+      this.expandType &#x3D; 1;
+      this.view.setCursor(&#x27;col-resize&#x27;);
+      this.view.splitColumnAt(this.activeId, clientX, clientY);
+      return;
+    }
+    if (offsetY &gt; 30) {
+      this.expandType &#x3D; 2;
+      this.view.setCursor(&#x27;row-resize&#x27;);
+      this.view.splitRowAt(this.activeId, clientX, clientY);
+    }
+    if (
+      (this.expandType &#x3D;&#x3D; 1 &amp;&amp; this.view.direction &#x3D;&#x3D; directionType.row) ||
+      (this.expandType &#x3D;&#x3D; 2 &amp;&amp; this.view.direction &#x3D;&#x3D; directionType.col)
+    ) {
+      this.unactiveExpand();
+    }
+  }
 }
 </code></pre>
     </div>

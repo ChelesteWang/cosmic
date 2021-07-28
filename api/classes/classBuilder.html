@@ -490,54 +490,55 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">interface classConfig {
-    id: string,
-    class: string[];
+  id: string;
+  class: string[];
 }
 
 interface stateConfig {
-    id: string,
-    classes: classConfig[];
-    weight?: number
+  id: string;
+  classes: classConfig[];
+  weight?: number;
 }
 interface WeightMap {
-    [index: string]: number;
+  [index: string]: number;
 }
 
 const defaultWeightMap: WeightMap &#x3D; {
-    &#x27;undefined&#x27;: 100,
-    &#x27;default&#x27;: 200,
-    &#x27;focus&#x27;: 300,
-    &#x27;hover&#x27;: 400,
-    &#x27;active&#x27;: 600,
-    &#x27;disabled&#x27;: 800,
+  undefined: 100,
+  default: 200,
+  focus: 300,
+  hover: 400,
+  active: 600,
+  disabled: 800,
 };
 export class classBuilder {
-    private orderedConfigs: stateConfig[] &#x3D; [];
-    constructor(configs: stateConfig[], private weightMap: WeightMap &#x3D; defaultWeightMap) {
-        configs.forEach((config: stateConfig) &#x3D;&gt; {
-            this.insertConfig(config);
-        });
+  private orderedConfigs: stateConfig[] &#x3D; [];
+  constructor(configs: stateConfig[], private weightMap: WeightMap &#x3D; defaultWeightMap) {
+    configs.forEach((config: stateConfig) &#x3D;&gt; {
+      this.insertConfig(config);
+    });
+  }
+  public clear(): void {
+    this.orderedConfigs &#x3D; [];
+  }
+  public addConfig(config: stateConfig): void {
+    this.insertConfig(config);
+  }
+  private insertConfig(config: stateConfig) {
+    const c &#x3D; this.normalizeWeight(config);
+    let cursor &#x3D; 0;
+    while (this.orderedConfigs[cursor] &amp;&amp; this.orderedConfigs[cursor].weight! &lt; c.weight!) {
+      cursor++;
     }
-    public clear(): void {
-        this.orderedConfigs &#x3D; [];
-    }
-    public addConfig(config: stateConfig): void {
-        this.insertConfig(config);
-    }
-    private insertConfig(config: stateConfig) {
-        const c &#x3D; this.normalizeWeight(config);
-        let cursor &#x3D; 0;
-        while (this.orderedConfigs[cursor] &amp;&amp; this.orderedConfigs[cursor].weight! &lt; c.weight!) {
-            cursor++;
-        }
-        this.orderedConfigs.splice(cursor, 0, c);
-    }
-    private normalizeWeight(config: stateConfig): stateConfig {
-        if (config.weight) return config;
-        config.weight &#x3D; defaultWeightMap[config.id] || defaultWeightMap.undefined;
-        return config;
-    }
-}</code></pre>
+    this.orderedConfigs.splice(cursor, 0, c);
+  }
+  private normalizeWeight(config: stateConfig): stateConfig {
+    if (config.weight) return config;
+    config.weight &#x3D; defaultWeightMap[config.id] || defaultWeightMap.undefined;
+    return config;
+  }
+}
+</code></pre>
     </div>
 </div>
 

@@ -119,7 +119,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(groupMenuService: <a href="../classes/MenuGroupService.html" target="_self">MenuGroupService</a>, menuItems: <a href="../interfaces/MenuItemConfig.html" target="_self">Array&lt;MenuItemConfig&gt;</a>)</code>
+<code>constructor(groupMenuService: <a href="../classes/MenuGroupService.html" target="_self">MenuGroupService</a>, menuItems: <a href="../interfaces/MenuItemConfig.html" target="_self">MenuItemConfig[]</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -157,7 +157,7 @@
                                                         <td>menuItems</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../interfaces/MenuItemConfig.html" target="_self" >Array&lt;MenuItemConfig&gt;</a></code>
+                                                                        <code><a href="../interfaces/MenuItemConfig.html" target="_self" >MenuItemConfig[]</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -228,15 +228,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>initMenu(menuItems: <a href="../interfaces/MenuItemConfig.html" target="_self">Array&lt;MenuItemConfig&gt;</a>)</code>
+                    <code>initMenu(menuItems: <a href="../interfaces/MenuItemConfig.html" target="_self">MenuItemConfig[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">src/workbench/desktop/base-menu/base-menu.ts:11</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">src/workbench/desktop/base-menu/base-menu.ts:10</a></div>
                 </td>
             </tr>
 
@@ -258,7 +258,7 @@
                                 <tr>
                                     <td>menuItems</td>
                                     <td>
-                                                <code><a href="../interfaces/MenuItemConfig.html" target="_self" >Array&lt;MenuItemConfig&gt;</a></code>
+                                                <code><a href="../interfaces/MenuItemConfig.html" target="_self" >MenuItemConfig[]</a></code>
                                     </td>
 
                                     <td>
@@ -297,19 +297,17 @@
 import type { Menu, MenuItemConfig } from &#x27;../menu&#x27;;
 
 export class BaseMenu {
-    private menuInstance!: Menu;
-    constructor(private groupMenuService: MenuGroupService, menuItems: Array&lt;MenuItemConfig&gt;) {
-        this.groupMenuService &#x3D; groupMenuService;
+  private menuInstance!: Menu;
+  constructor(private groupMenuService: MenuGroupService, menuItems: MenuItemConfig[]) {
+    this.groupMenuService &#x3D; groupMenuService;
+  }
 
-    }
-
-    public initMenu(menuItems: Array&lt;MenuItemConfig&gt;):void {
-        this.menuInstance &#x3D; this.groupMenuService.getMenuInsatance();
-        this.menuInstance.init(&#x27;文件&#x27;, menuItems);
-        
-    }
-
-}</code></pre>
+  public initMenu(menuItems: MenuItemConfig[]): void {
+    this.menuInstance &#x3D; this.groupMenuService.getMenuInsatance();
+    this.menuInstance.init(&#x27;文件&#x27;, menuItems);
+  }
+}
+</code></pre>
     </div>
 </div>
 

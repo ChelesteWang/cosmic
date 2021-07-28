@@ -421,8 +421,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:66</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:64</a></div>
                 </td>
             </tr>
 
@@ -460,8 +460,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:78</a></div>
                 </td>
             </tr>
 
@@ -499,8 +499,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="70"
-                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:70</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:68</a></div>
                 </td>
             </tr>
 
@@ -540,8 +540,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:54</a></div>
                 </td>
             </tr>
 
@@ -579,8 +579,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:33</a></div>
                 </td>
             </tr>
 
@@ -649,8 +649,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:26</a></div>
                 </td>
             </tr>
 
@@ -719,8 +719,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:58</a></div>
                 </td>
             </tr>
 
@@ -758,8 +758,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:40</a></div>
                 </td>
             </tr>
 
@@ -832,8 +832,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:47</a></div>
                 </td>
             </tr>
 
@@ -906,8 +906,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">src/core/browser/layout/split-item.view.ts:72</a></div>
                 </td>
             </tr>
 
@@ -1191,86 +1191,84 @@ import { directionType } from &#x27;./split-board.view&#x27;;
 import SplitExpand from &#x27;./split-expand.svelte&#x27;;
 
 enum directionStyles {
-    &#x27;w&#x27; &#x3D; &#x27;merge-w&#x27;,
-    &#x27;e&#x27; &#x3D; &#x27;merge-e&#x27;,
-    &#x27;s&#x27; &#x3D; &#x27;merge-s&#x27;,
-    &#x27;n&#x27; &#x3D; &#x27;merge-n&#x27;
+  &#x27;w&#x27; &#x3D; &#x27;merge-w&#x27;,
+  &#x27;e&#x27; &#x3D; &#x27;merge-e&#x27;,
+  &#x27;s&#x27; &#x3D; &#x27;merge-s&#x27;,
+  &#x27;n&#x27; &#x3D; &#x27;merge-n&#x27;,
 }
 
 export default class SplitItemView extends View {
-    private _growClassName &#x3D; &#x27;&#x27;;
-    private _shrinkClassName &#x3D; &#x27;&#x27;;
-    private _bgColorClassName: string[] &#x3D; [&#x27;bg-cgray-100&#x27;, &#x27;dark:bg-cgray-800&#x27;];
+  private _growClassName &#x3D; &#x27;&#x27;;
+  private _shrinkClassName &#x3D; &#x27;&#x27;;
+  private _bgColorClassName: string[] &#x3D; [&#x27;bg-cgray-100&#x27;, &#x27;dark:bg-cgray-800&#x27;];
 
-    public contentView!: HTMLElement;
-    private expand!: SplitExpand;
+  public contentView!: HTMLElement;
+  private expand!: SplitExpand;
 
-    constructor() {
-        super();
-        this.addExpandButton();
-        this.setDefaultClass();
+  constructor() {
+    super();
+    this.addExpandButton();
+    this.setDefaultClass();
+  }
 
-    }
+  public setContent(contentView: HTMLElement): SplitItemView {
+    this.contentView &#x3D; contentView;
+    this.root.classList.add(&#x27;split-item&#x27;, &#x27;flex&#x27;);
+    contentView.classList.add(&#x27;flex&#x27;, &#x27;flex-1&#x27;);
+    return this.prepend(contentView);
+  }
 
-    public setContent(contentView: HTMLElement): SplitItemView {
-        this.contentView &#x3D; contentView;
-        this.root.classList.add(&#x27;split-item&#x27;, &#x27;flex&#x27;);
-        contentView.classList.add(&#x27;flex&#x27;, &#x27;flex-1&#x27;);
-        return this.prepend(contentView);
-    }
+  public replaceContent(contentView: HTMLElement): SplitItemView {
+    this.root.replaceChild(contentView, this.contentView);
+    this.contentView &#x3D; contentView;
+    contentView.classList.add(&#x27;flex&#x27;, &#x27;flex-1&#x27;);
+    return this;
+  }
 
-    public replaceContent(contentView: HTMLElement): SplitItemView {
-        this.root.replaceChild(contentView, this.contentView);
-        this.contentView &#x3D; contentView;
-        contentView.classList.add(&#x27;flex&#x27;, &#x27;flex-1&#x27;);
-        return this;
-    }
+  public setGrow(className &#x3D; &#x27;flex-grow&#x27;): void {
+    this.root.classList.remove(this._shrinkClassName);
+    this._shrinkClassName &#x3D; &#x27;&#x27;;
+    this._growClassName &#x3D; className;
+    this.root.classList.add(this._growClassName);
+  }
 
-    public setGrow(className &#x3D; &#x27;flex-grow&#x27;): void {
-        this.root.classList.remove(this._shrinkClassName);
-        this._shrinkClassName &#x3D; &#x27;&#x27;;
-        this._growClassName &#x3D; className;
-        this.root.classList.add(this._growClassName);
-    }
+  public setShrink(className &#x3D; &#x27;flex-shrink&#x27;): void {
+    this.root.classList.remove(this._growClassName);
+    this._growClassName &#x3D; &#x27;&#x27;;
+    this._shrinkClassName &#x3D; className;
+    this.root.classList.add(this._shrinkClassName);
+  }
 
-    public setShrink(className &#x3D; &#x27;flex-shrink&#x27;): void {
-        this.root.classList.remove(this._growClassName);
-        this._growClassName &#x3D; &#x27;&#x27;;
-        this._shrinkClassName &#x3D; className;
-        this.root.classList.add(this._shrinkClassName);
-    }
+  public isShrink(): boolean {
+    return !!this._growClassName;
+  }
 
-    public isShrink(): boolean {
-        return !!this._growClassName;
-    }
+  private setDefaultClass() {
+    this.root.classList.add(&#x27;flex-grow&#x27;, &#x27;rounded-xl&#x27;);
+    this.root.classList.add(&#x27;relative&#x27;);
+    this.root.classList.add(...this._bgColorClassName);
+  }
 
-    private setDefaultClass() {
-        this.root.classList.add(&#x27;flex-grow&#x27;, &#x27;rounded-xl&#x27;);
-        this.root.classList.add(&#x27;relative&#x27;);
-        this.root.classList.add(...this._bgColorClassName);
+  private addExpandButton() {
+    this.expand &#x3D; new SplitExpand({ target: this.root });
+  }
+  /** To hide expand button */
+  public hideExpandButton(): void {
+    this.expand.expandHidden &#x3D; true;
+  }
 
-    }
+  public waitForMerge(direction: &#x27;w&#x27; | &#x27;e&#x27; | &#x27;s&#x27; | &#x27;n&#x27;): void {
+    this.cancelWaitForMerge();
+    this.root.classList.add(&#x27;wait-for-merge&#x27;);
+    this.expand.mergeDirection &#x3D; directionStyles[direction];
+  }
 
-    private addExpandButton() {
-        this.expand &#x3D; new SplitExpand({ target: this.root });
-    }
-    /** To hide expand button */
-    public hideExpandButton(): void {
-        this.expand.expandHidden &#x3D; true;
-    }
-
-    public waitForMerge(direction: &#x27;w&#x27; | &#x27;e&#x27; | &#x27;s&#x27; | &#x27;n&#x27;): void {
-        this.cancelWaitForMerge();
-        this.root.classList.add(&#x27;wait-for-merge&#x27;);
-        this.expand.mergeDirection &#x3D; directionStyles[direction];
-    }
-
-    public cancelWaitForMerge(): void {
-        this.root.classList.remove(&#x27;wait-for-merge&#x27;);
-        this.expand.mergeDirection &#x3D; &#x27;&#x27;;
-    }
-
-}</code></pre>
+  public cancelWaitForMerge(): void {
+    this.root.classList.remove(&#x27;wait-for-merge&#x27;);
+    this.expand.mergeDirection &#x3D; &#x27;&#x27;;
+  }
+}
+</code></pre>
     </div>
 </div>
 
