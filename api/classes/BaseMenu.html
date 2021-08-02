@@ -223,8 +223,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">src/workbench/desktop/base-menu/base-menu.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="8"
+                            class="link-to-prism">src/workbench/desktop/base-menu/base-menu.ts:8</a></div>
                 </td>
             </tr>
 
@@ -285,16 +285,13 @@
 import type { Menu, MenuItemConfig } from &#x27;../menu&#x27;;
 
 export class BaseMenu {
-    private menuInstance!: Menu;
-    constructor(private groupMenuService: MenuGroupService) {
-    }
+  private menuInstance!: Menu;
+  constructor(private groupMenuService: MenuGroupService) {}
 
-    public initMenu(menuItems: MenuItemConfig[]):void {
-        this.menuInstance &#x3D; this.groupMenuService.getMenuInsatance();
-        this.menuInstance.init(&#x27;文件&#x27;, menuItems);
-        
-    }
-
+  public initMenu(menuItems: MenuItemConfig[]): void {
+    this.menuInstance &#x3D; this.groupMenuService.getMenuInsatance();
+    this.menuInstance.init(&#x27;文件&#x27;, menuItems);
+  }
 }
 </code></pre>
     </div>
