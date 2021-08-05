@@ -79,6 +79,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/MenuItem.html" data-type="entity-link" >MenuItem</a>
                             </li>
                             <li class="link">
+                                <a href="classes/ResourceExplorer.html" data-type="entity-link" >ResourceExplorer</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/SplitBoardController.html" data-type="entity-link" >SplitBoardController</a>
                             </li>
                             <li class="link">
@@ -88,7 +91,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/SplitItemView.html" data-type="entity-link" >SplitItemView</a>
                             </li>
                             <li class="link">
-                                <a href="classes/Test.html" data-type="entity-link" >Test</a>
+                                <a href="classes/SVController.html" data-type="entity-link" >SVController</a>
                             </li>
                             <li class="link">
                                 <a href="classes/View.html" data-type="entity-link" >View</a>
@@ -107,7 +110,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/classConfig.html" data-type="entity-link" >classConfig</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/Controller.html" data-type="entity-link" >Controller</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IComponentOptions.html" data-type="entity-link" >IComponentOptions</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/ISettings.html" data-type="entity-link" >ISettings</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ISplitBoardView.html" data-type="entity-link" >ISplitBoardView</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/MenuItemConfig.html" data-type="entity-link" >MenuItemConfig</a>
