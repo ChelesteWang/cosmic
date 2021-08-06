@@ -416,24 +416,27 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type View from &#x27;../view&#x27;; 
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type View from &#x27;../view&#x27;;
 import type SplitItemView from &#x27;./split-item.view&#x27;;
 
 export enum directionType {
-    &#x27;col&#x27;,
-    &#x27;row&#x27;
+  &#x27;col&#x27;,
+  &#x27;row&#x27;,
 }
 
 export interface ISplitBoardView extends View {
-    items: SplitItemView[];
-    direction : directionType;
-    setCursor: (type: &#x27;&#x27; | &#x27;row-resize&#x27; | &#x27;col-resize&#x27; | &#x27;crosshair&#x27; | &#x27;e-resize&#x27; | &#x27;w-resize&#x27; | &#x27;s-resize&#x27; | &#x27;n-resize&#x27;) &#x3D;&gt; void;
-    cancelForMerge: () &#x3D;&gt; void;
-    resizeAt: (index: number, start: number, length: number, position: number) &#x3D;&gt; void;
-    waitForMergeAtItem: (index: number, direction: &#x27;w&#x27; | &#x27;e&#x27; | &#x27;n&#x27; | &#x27;s&#x27;) &#x3D;&gt; void;
-    splitColumnAt: (index: number, clientX: number, clientY: number) &#x3D;&gt; void;
-    splitRowAt: (index: number, clientX: number, clientY: number) &#x3D;&gt; void;
-}</code></pre>
+  items: SplitItemView[];
+  direction: directionType;
+  setCursor: (
+    type: &#x27;&#x27; | &#x27;row-resize&#x27; | &#x27;col-resize&#x27; | &#x27;crosshair&#x27; | &#x27;e-resize&#x27; | &#x27;w-resize&#x27; | &#x27;s-resize&#x27; | &#x27;n-resize&#x27;
+  ) &#x3D;&gt; void;
+  cancelForMerge: () &#x3D;&gt; void;
+  resizeAt: (index: number, start: number, length: number, position: number) &#x3D;&gt; void;
+  waitForMergeAtItem: (index: number, direction: &#x27;w&#x27; | &#x27;e&#x27; | &#x27;n&#x27; | &#x27;s&#x27;) &#x3D;&gt; void;
+  splitColumnAt: (index: number, clientX: number, clientY: number) &#x3D;&gt; void;
+  splitRowAt: (index: number, clientX: number, clientY: number) &#x3D;&gt; void;
+}
+</code></pre>
     </div>
 </div>
 
