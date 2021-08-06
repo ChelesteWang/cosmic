@@ -1874,7 +1874,7 @@ export default class SplitBoardView extends View implements ISplitBoardView {
   public insertItemAt(item: SplitItemView, pos?: number): void {
     pos &#x3D; pos &#x3D;&#x3D;&#x3D; undefined ? this.items.length : pos;
     this.items.splice(pos, 0, item);
-    if (pos &#x3D;&#x3D; 0) {
+    if (pos &#x3D;&#x3D;&#x3D; 0) {
       this.root.appendChild(item.root);
     } else {
       this.items[pos - 1].root.after(item.root);
@@ -1882,12 +1882,12 @@ export default class SplitBoardView extends View implements ISplitBoardView {
   }
 
   public setCursor(
-    type: &#x27;&#x27; | &#x27;row-resize&#x27; | &#x27;col-resize&#x27; | &#x27;crosshair&#x27; | &#x27;e-resize&#x27; | &#x27;w-resize&#x27; | &#x27;s-resize&#x27; | &#x27;n-resize&#x27; &#x3D; &#x27;&#x27;,
+    type: &#x27;&#x27; | &#x27;row-resize&#x27; | &#x27;col-resize&#x27; | &#x27;crosshair&#x27; | &#x27;e-resize&#x27; | &#x27;w-resize&#x27; | &#x27;s-resize&#x27; | &#x27;n-resize&#x27; &#x3D; &#x27;&#x27;
   ): void {
     this.root.style.cursor &#x3D; type;
   }
   public waitForMergeAtItem(index: number, direction: &#x27;w&#x27; | &#x27;e&#x27; | &#x27;n&#x27; | &#x27;s&#x27;): void {
-    if (this._waitForMergeItem &#x3D;&#x3D; this.items[index]) {
+    if (this._waitForMergeItem &#x3D;&#x3D;&#x3D; this.items[index]) {
       return;
     }
     this.cancelForMerge();
@@ -1922,12 +1922,12 @@ export default class SplitBoardView extends View implements ISplitBoardView {
       minSize: 15,
       direction,
       snapOffset: 0,
-      gutterStyle: () &#x3D;&gt; (direction &#x3D;&#x3D; &#x27;vertical&#x27; ? { height: &#x27;3px&#x27; } : { width: &#x27;3px&#x27; }),
+      gutterStyle: () &#x3D;&gt; (direction &#x3D;&#x3D;&#x3D; &#x27;vertical&#x27; ? { height: &#x27;3px&#x27; } : { width: &#x27;3px&#x27; }),
     });
   }
 
   private destorySplit() {
-    this.splitInstance &amp;&amp; this.splitInstance.destroy();
+    if (this.splitInstance) this.splitInstance.destroy();
     this.splitInstance &#x3D; null;
   }
   // 切分列
@@ -1976,7 +1976,7 @@ export default class SplitBoardView extends View implements ISplitBoardView {
     const newItem &#x3D; new SplitItemView().setContent(document.createElement(&#x27;div&#x27;));
     this.destorySplit();
     this.insertItemAt(newItem, index + 1);
-    this.applySplit(this.direction &#x3D;&#x3D; directionType.col ? &#x27;horizontal&#x27; : &#x27;vertical&#x27;, newSizes);
+    this.applySplit(this.direction &#x3D;&#x3D;&#x3D; directionType.col ? &#x27;horizontal&#x27; : &#x27;vertical&#x27;, newSizes);
   }
 
   /** live resize after expanded  */
@@ -1985,25 +1985,25 @@ export default class SplitBoardView extends View implements ISplitBoardView {
     // const item &#x3D; this.items[index];
     let max &#x3D; length;
     if (this.items[index + 1]) {
-      max +&#x3D; this.items[index + 1].root[this.direction &#x3D;&#x3D; directionType.col ? &#x27;clientWidth&#x27; : &#x27;clientHeight&#x27;];
+      max +&#x3D; this.items[index + 1].root[this.direction &#x3D;&#x3D;&#x3D; directionType.col ? &#x27;clientWidth&#x27; : &#x27;clientHeight&#x27;];
     }
     const r &#x3D; (position - start) / max;
     if (position - start &lt; 30) return;
     if (max - position + start &lt; 30) return;
-    let other &#x3D; 0,
-      sum &#x3D; 0;
+    let other &#x3D; 0;
+    let sum &#x3D; 0;
     this.splitInstance.getSizes().forEach((size, i) &#x3D;&gt; {
       sum +&#x3D; size;
-      if (i &#x3D;&#x3D; index || i &#x3D;&#x3D; index + 1) return;
+      if (i &#x3D;&#x3D;&#x3D; index || i &#x3D;&#x3D;&#x3D; index + 1) return;
       other +&#x3D; size;
     });
     let newSize &#x3D; 0;
     const newSizes: number[] &#x3D; [];
     this.splitInstance.getSizes().forEach((size, i) &#x3D;&gt; {
-      if (index &#x3D;&#x3D; i) {
+      if (index &#x3D;&#x3D;&#x3D; i) {
         newSize &#x3D; (sum - other) * r;
         newSizes.push(newSize);
-      } else if (index + 1 &#x3D;&#x3D; i) {
+      } else if (index + 1 &#x3D;&#x3D;&#x3D; i) {
         newSizes.push(sum - other - newSize);
       } else if (index !&#x3D;&#x3D; i) {
         newSizes.push(size);
@@ -2016,7 +2016,7 @@ export default class SplitBoardView extends View implements ISplitBoardView {
     const r &#x3D; (position - start) / length;
     if (r &lt;&#x3D; 0 || r &gt;&#x3D; 1) return undefined;
     const newSizes: number[] &#x3D; [];
-    this.splitInstance &amp;&amp;
+    if (this.splitInstance) {
       this.splitInstance.getSizes().forEach((size, i) &#x3D;&gt; {
         if (index !&#x3D;&#x3D; i) {
           newSizes.push(size);
@@ -2025,6 +2025,7 @@ export default class SplitBoardView extends View implements ISplitBoardView {
         const w &#x3D; size * r;
         newSizes.push(w, size - w);
       });
+    }
     return newSizes;
   }
 }
