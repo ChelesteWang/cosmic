@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/core/parts/modules/controller.ts</code>
+            <code>src/core/parts/modules/svelte-controller.ts</code>
         </p>
 
 
@@ -177,7 +177,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/core/parts/modules/controller.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/core/parts/modules/svelte-controller.ts:6</a></div>
                         </td>
                     </tr>
 
@@ -204,7 +204,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/core/parts/modules/controller.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/core/parts/modules/svelte-controller.ts:5</a></div>
                         </td>
                     </tr>
 
@@ -240,8 +240,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">src/core/parts/modules/controller.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/core/parts/modules/svelte-controller.ts:28</a></div>
                 </td>
             </tr>
 
@@ -279,8 +279,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">src/core/parts/modules/controller.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">src/core/parts/modules/svelte-controller.ts:12</a></div>
                 </td>
             </tr>
 
@@ -318,8 +318,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/core/parts/modules/controller.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">src/core/parts/modules/svelte-controller.ts:20</a></div>
                 </td>
             </tr>
 
@@ -388,8 +388,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/core/parts/modules/controller.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="8"
+                            class="link-to-prism">src/core/parts/modules/svelte-controller.ts:8</a></div>
                 </td>
             </tr>
 
@@ -398,7 +398,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/variables.html#a" target="_self" >any</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                 </td>
@@ -427,8 +427,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">src/core/parts/modules/controller.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/core/parts/modules/svelte-controller.ts:23</a></div>
                 </td>
             </tr>
 
@@ -466,8 +466,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/core/parts/modules/controller.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/core/parts/modules/svelte-controller.ts:26</a></div>
                 </td>
             </tr>
 
@@ -505,8 +505,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">src/core/parts/modules/controller.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/core/parts/modules/svelte-controller.ts:22</a></div>
                 </td>
             </tr>
 
@@ -544,8 +544,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">src/core/parts/modules/controller.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/core/parts/modules/svelte-controller.ts:25</a></div>
                 </td>
             </tr>
 
@@ -572,28 +572,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { SvelteComponentDev } from &#x27;svelte/internal&#x27;;
-export interface Controller {
-  view: () &#x3D;&gt; HTMLElement;
-  init: () &#x3D;&gt; Controller;
-  viewWillAppear: () &#x3D;&gt; void;
-  viewDidAppear: () &#x3D;&gt; void;
-
-  viewWillDisappear: () &#x3D;&gt; void;
-  viewDidDisappear: () &#x3D;&gt; void;
-
-  destroy: () &#x3D;&gt; void;
-}
-
-declare type Props &#x3D; Record&lt;string, any&gt;;
-interface IComponentOptions {
-  target: Element;
-  anchor?: Element;
-  props?: Props;
-  context?: Map&lt;any, any&gt;;
-  hydrate?: boolean;
-  intro?: boolean;
-  $$inline?: boolean;
-}
+import type { Controller } from &#x27;./controller&#x27;;
 
 export abstract class SVController implements Controller {
   private comp: SvelteComponentDev;

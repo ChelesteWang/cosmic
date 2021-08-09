@@ -371,8 +371,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { SvelteComponentDev } from &#x27;svelte/internal&#x27;;
-export interface Controller {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface Controller {
   view: () &#x3D;&gt; HTMLElement;
   init: () &#x3D;&gt; Controller;
   viewWillAppear: () &#x3D;&gt; void;
@@ -393,40 +392,6 @@ interface IComponentOptions {
   hydrate?: boolean;
   intro?: boolean;
   $$inline?: boolean;
-}
-
-export abstract class SVController implements Controller {
-  private comp: SvelteComponentDev;
-  private _view: HTMLElement;
-
-  public view() {
-    return this._view;
-  }
-
-  public init() {
-    this._view &#x3D; this._view || document.createElement(&#x27;div&#x27;);
-    this.viewWillAppear();
-    this.comp &#x3D; this.initWithComponent(this._view);
-    this.viewDidAppear();
-    return this;
-  }
-
-  abstract initWithComponent(target: Element): SvelteComponentDev;
-
-  abstract viewWillAppear(): void;
-  abstract viewDidAppear(): void;
-
-  abstract viewWillDisappear(): void;
-  abstract viewDidDisappear(): void;
-
-  public destroy() {
-    this.viewWillDisappear();
-    this.comp.$destroy();
-    if (this._view.parentNode) {
-      this._view.parentNode.removeChild(this._view);
-    }
-    this.viewDidDisappear();
-  }
 }
 </code></pre>
     </div>
