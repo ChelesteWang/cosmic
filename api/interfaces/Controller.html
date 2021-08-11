@@ -371,9 +371,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface Controller {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface Controller&lt;T&gt; {
   view: () &#x3D;&gt; HTMLElement;
-  init: () &#x3D;&gt; Controller;
+  init: (props: T) &#x3D;&gt; Promise&lt;Controller&lt;T&gt;&gt;;
   viewWillAppear: () &#x3D;&gt; void;
   viewDidAppear: () &#x3D;&gt; void;
 
@@ -383,16 +383,16 @@
   destroy: () &#x3D;&gt; void;
 }
 
-declare type Props &#x3D; Record&lt;string, any&gt;;
-interface IComponentOptions {
-  target: Element;
-  anchor?: Element;
-  props?: Props;
-  context?: Map&lt;any, any&gt;;
-  hydrate?: boolean;
-  intro?: boolean;
-  $$inline?: boolean;
-}
+// declare type Props &#x3D; Record&lt;string, any&gt;;
+// interface IComponentOptions {
+//   target: Element;
+//   anchor?: Element;
+//   props?: Props;
+//   context?: Map&lt;any, any&gt;;
+//   hydrate?: boolean;
+//   intro?: boolean;
+//   $$inline?: boolean;
+// }
 </code></pre>
     </div>
 </div>

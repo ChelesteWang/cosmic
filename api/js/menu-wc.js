@@ -79,7 +79,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/MenuItem.html" data-type="entity-link" >MenuItem</a>
                             </li>
                             <li class="link">
+                                <a href="classes/ModuleFactory.html" data-type="entity-link" >ModuleFactory</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/PropertyPanel.html" data-type="entity-link" >PropertyPanel</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/ResourceExplorer.html" data-type="entity-link" >ResourceExplorer</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ShapeCanvas.html" data-type="entity-link" >ShapeCanvas</a>
                             </li>
                             <li class="link">
                                 <a href="classes/SplitBoardController.html" data-type="entity-link" >SplitBoardController</a>
@@ -95,6 +104,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/View.html" data-type="entity-link" >View</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/Workbench.html" data-type="entity-link" >Workbench</a>
                             </li>
                         </ul>
                     </li>
@@ -113,9 +125,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/Controller.html" data-type="entity-link" >Controller</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/IComponentOptions.html" data-type="entity-link" >IComponentOptions</a>
-                            </li>
-                            <li class="link">
                                 <a href="interfaces/ISettings.html" data-type="entity-link" >ISettings</a>
                             </li>
                             <li class="link">
@@ -125,10 +134,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/MenuItemConfig.html" data-type="entity-link" >MenuItemConfig</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/ModuleConfig.html" data-type="entity-link" >ModuleConfig</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/stateConfig.html" data-type="entity-link" >stateConfig</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/WeightMap.html" data-type="entity-link" >WeightMap</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/WorkbenchProps.html" data-type="entity-link" >WorkbenchProps</a>
                             </li>
                         </ul>
                     </li>
