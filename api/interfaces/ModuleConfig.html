@@ -137,7 +137,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { Controller } from &#x27;./controller&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { Module } from &#x27;./module&#x27;;
 import { injectable } from &#x27;inversify&#x27;;
 import type { Container } from &#x27;inversify&#x27;;
 
@@ -149,8 +149,8 @@ export interface ModuleConfig {
 /** Provides the ability to cache and run ES Modules */
 export class ModuleFactory {
   constructor(private container: Container) {}
-  private modules: Map&lt;string, new () &#x3D;&gt; Controller&lt;any&gt;&gt; &#x3D; new Map();
-  add(moduleId: string, module: new () &#x3D;&gt; Controller&lt;any&gt;, scope: &#x27;Singleton&#x27; | &#x27;Transient&#x27; | &#x27;Request&#x27; &#x3D; &#x27;Transient&#x27;) {
+  private modules: Map&lt;string, new () &#x3D;&gt; Module&lt;any&gt;&gt; &#x3D; new Map();
+  add(moduleId: string, module: new () &#x3D;&gt; Module&lt;any&gt;, scope: &#x27;Singleton&#x27; | &#x27;Transient&#x27; | &#x27;Request&#x27; &#x3D; &#x27;Transient&#x27;) {
     if (this.exist(moduleId)) return;
     this.modules.set(moduleId, module);
     const m &#x3D; this.container.bind(moduleId).to(module);
@@ -174,12 +174,12 @@ export class ModuleFactory {
   }
   async load(moduleId: string, props: any) {
     if (!this.exist(moduleId)) {
-      await import(moduleId).then((Module) &#x3D;&gt; {
-        this.add(moduleId, Module.default, props.scope || &#x27;Transient&#x27;);
+      await import(moduleId).then((ModuleSource) &#x3D;&gt; {
+        this.add(moduleId, ModuleSource.default, props.scope || &#x27;Transient&#x27;);
       });
     }
-    const module &#x3D; this.container.get(moduleId) as Controller&lt;any&gt;;
-    module.init(props);
+    const module &#x3D; this.container.get(moduleId) as Module&lt;any&gt;;
+    await module.init(props);
     return module;
   }
 }

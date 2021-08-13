@@ -70,7 +70,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ColorRef.html" data-type="entity-link" >ColorRef</a>
                             </li>
                             <li class="link">
+                                <a href="classes/Controller.html" data-type="entity-link" >Controller</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/Menu.html" data-type="entity-link" >Menu</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/MenuBar.html" data-type="entity-link" >MenuBar</a>
                             </li>
                             <li class="link">
                                 <a href="classes/MenuGroupService.html" data-type="entity-link" >MenuGroupService</a>
@@ -80,6 +86,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/ModuleFactory.html" data-type="entity-link" >ModuleFactory</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ModuleItem.html" data-type="entity-link" >ModuleItem</a>
                             </li>
                             <li class="link">
                                 <a href="classes/PropertyPanel.html" data-type="entity-link" >PropertyPanel</a>
@@ -100,7 +109,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/SplitItemView.html" data-type="entity-link" >SplitItemView</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SVController.html" data-type="entity-link" >SVController</a>
+                                <a href="classes/SvelteModule.html" data-type="entity-link" >SvelteModule</a>
                             </li>
                             <li class="link">
                                 <a href="classes/View.html" data-type="entity-link" >View</a>
@@ -122,16 +131,22 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/classConfig.html" data-type="entity-link" >classConfig</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/Controller.html" data-type="entity-link" >Controller</a>
-                            </li>
-                            <li class="link">
                                 <a href="interfaces/ISettings.html" data-type="entity-link" >ISettings</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ISplitBoardView.html" data-type="entity-link" >ISplitBoardView</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/ItemGenerateDelegate.html" data-type="entity-link" >ItemGenerateDelegate</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/MenuItemConfig.html" data-type="entity-link" >MenuItemConfig</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/MenuProps.html" data-type="entity-link" >MenuProps</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/Module.html" data-type="entity-link" >Module</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ModuleConfig.html" data-type="entity-link" >ModuleConfig</a>

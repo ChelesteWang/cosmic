@@ -165,7 +165,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>modules:         <code><a href="../interfaces/ModuleConfig.html" target="_self" >ModuleConfig[]</a></code>
+                                        <code>modules:     <code>ModuleConfig[]</code>
 </code>
                                     </td>
                                 </tr>
@@ -173,7 +173,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="../interfaces/ModuleConfig.html" target="_self" >ModuleConfig[]</a></code>
+                                            <i>Type : </i>    <code>ModuleConfig[]</code>
 
                                         </td>
                                     </tr>
@@ -261,8 +261,10 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { injectable, inject } from &#x27;inversify&#x27;;
-import type { Controller, ModuleFactory, ModuleConfig } from &#x27;@cosmic/core/parts&#x27;;
-import { SplitBoardView, SplitItemView, directionType } from &#x27;@cosmic/core/browser&#x27;;
+import type { Module, ModuleFactory, ModuleConfig } from &#x27;@cosmic/core/parts&#x27;;
+import { Controller, SplitBoardView, directionType } from &#x27;@cosmic/core/browser&#x27;;
+import type { ItemGenerateDelegate } from &#x27;@cosmic/core/browser&#x27;;
+import { ModuleItem } from &#x27;./module-item&#x27;;
 
 interface WorkbenchProps {
   type: &#x27;col&#x27; | &#x27;row&#x27;;
@@ -272,22 +274,30 @@ interface WorkbenchProps {
 }
 
 @injectable()
-export default class Workbench implements Controller&lt;WorkbenchProps&gt; {
-  private splitBoard: SplitBoardView;
+export default class Workbench
+  extends Controller
+  implements Module&lt;WorkbenchProps&gt;, ItemGenerateDelegate&lt;ModuleItem&lt;any&gt;&gt;
+{
+  public props: WorkbenchProps;
+  private splitBoard: SplitBoardView&lt;ModuleItem&lt;any&gt;&gt;;
   private moduleFactory: ModuleFactory;
   constructor(@inject(&#x27;ModuleFactory&#x27;) moduleFactory: ModuleFactory) {
-    this.splitBoard &#x3D; new SplitBoardView().setFlow(&#x27;1&#x27;);
+    super();
+    this.splitBoard &#x3D; new SplitBoardView&lt;ModuleItem&lt;any&gt;&gt;().setFlow(&#x27;1&#x27;);
+    this.splitBoard.itemGenerateDelegate &#x3D; this;
     this.moduleFactory &#x3D; moduleFactory;
   }
   view() {
     return this.splitBoard.root;
   }
   async init(props: WorkbenchProps) {
+    this.props &#x3D; props;
     this.splitBoard.direction &#x3D; directionType[props.type];
     for (const p of props.modules || []) {
-      const module &#x3D; await this.moduleFactory.load(p.id, p);
-      const view &#x3D; new SplitItemView().setContent(module.view());
-      this.splitBoard.addItem(view);
+      const item &#x3D; new ModuleItem();
+      item.loader &#x3D; this.moduleFactory.load(p.id, p);
+      item.moduleId &#x3D; p.id;
+      this.splitBoard.addItem(item);
     }
     this.splitBoard.applySplit(
       this.splitBoard.direction &#x3D;&#x3D;&#x3D; directionType.col ? &#x27;horizontal&#x27; : &#x27;vertical&#x27;,
@@ -297,6 +307,17 @@ export default class Workbench implements Controller&lt;WorkbenchProps&gt; {
   }
 
   viewWillAppear(): void {
+    this.splitBoard.items.forEach((item, index) &#x3D;&gt; {
+      const view &#x3D; this.splitBoard.items[index];
+      item.loader.then((module) &#x3D;&gt; {
+        if (module instanceof Controller) {
+          view.setContent(module.view());
+          view.module &#x3D; module;
+          module.viewWillAppear();
+          module.viewDidDisappear();
+        }
+      });
+    });
     /** to be completed */
   }
   viewDidAppear(): void {
@@ -310,13 +331,36 @@ export default class Workbench implements Controller&lt;WorkbenchProps&gt; {
     /** to be completed */
   }
 
-  public destroy() {
+  public async destroy() {
     const view &#x3D; this.view();
     this.viewWillDisappear();
     if (view.parentNode) {
       view.parentNode.removeChild(view);
     }
     this.viewDidDisappear();
+    return this;
+  }
+  expandNewItem(view: ModuleItem&lt;any&gt;, index: number) {
+    const item &#x3D; view.clone();
+    item.loader &#x3D; this.moduleFactory.load(item.moduleId, view.module.serialize());
+    item.loader.then((module) &#x3D;&gt; {
+      if (module instanceof Controller) {
+        item.module &#x3D; module;
+        item.setContent(module.view());
+        module.viewWillAppear();
+        module.viewDidDisappear();
+      }
+    });
+    return item;
+  }
+
+  serialize() {
+    return {
+      type: this.props.type,
+      minWidth: this.props.minWidth,
+      scale: this.props.scale,
+      modules: [],
+    };
   }
 }
 </code></pre>
