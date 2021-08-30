@@ -64,7 +64,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/modules/menu-bar/index.ts</code>
+            <code>src/modules/menu-group/index.ts</code>
         </p>
 
 
@@ -141,7 +141,7 @@
 import type { Module, ModuleFactory, ModuleConfig } from &#x27;@cosmic/core/parts&#x27;;
 import { Controller, SplitBoardView, directionType } from &#x27;@cosmic/core/browser&#x27;;
 import type { ItemGenerateDelegate } from &#x27;@cosmic/core/browser&#x27;;
-import { Menu } from &#x27;./menu&#x27;;
+// import { Menu } from &#x27;./menu&#x27;;
 
 interface MenuProps {
   title: string;
@@ -150,7 +150,7 @@ interface MenuProps {
 @injectable()
 export default class MenuBar extends Controller implements Module&lt;MenuProps&gt; {
   props: MenuProps;
-  private meuns!: Menu[];
+  // private meuns!: Menu[];
   private _view: HTMLElement;
   view() {
     return this._view;
@@ -160,9 +160,9 @@ export default class MenuBar extends Controller implements Module&lt;MenuProps&g
     return this;
   }
   viewWillAppear() {
-    const id &#x3D; Date.now() + &#x27;&#x27; + this.meuns.length;
-    const menu &#x3D; new Menu(this._view, id);
-    this.meuns.push(menu);
+    // const id &#x3D; Date.now() + &#x27;&#x27; + this.meuns.length;
+    // const menu &#x3D; new Menu(this._view, id);
+    // this.meuns.push(menu);
   }
   serialize() {
     return { title: &#x27;&#x27; };
@@ -170,10 +170,10 @@ export default class MenuBar extends Controller implements Module&lt;MenuProps&g
   async destroy() {
     return this;
   }
-  remove(menu: Menu) {
-    this._view.removeChild(menu.container);
-    this.meuns &#x3D; this.meuns.filter((item) &#x3D;&gt; item.id &#x3D;&#x3D;&#x3D; menu.id);
-  }
+  // remove(menu: Menu) {
+  //   this._view.removeChild(menu.container);
+  //   this.meuns &#x3D; this.meuns.filter((item) &#x3D;&gt; item.id &#x3D;&#x3D;&#x3D; menu.id);
+  // }
 }
 </code></pre>
     </div>

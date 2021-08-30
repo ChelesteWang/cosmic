@@ -73,16 +73,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Controller.html" data-type="entity-link" >Controller</a>
                             </li>
                             <li class="link">
-                                <a href="classes/Menu.html" data-type="entity-link" >Menu</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/MenuBar.html" data-type="entity-link" >MenuBar</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/MenuGroupService.html" data-type="entity-link" >MenuGroupService</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/MenuItem.html" data-type="entity-link" >MenuItem</a>
                             </li>
                             <li class="link">
                                 <a href="classes/ModuleFactory.html" data-type="entity-link" >ModuleFactory</a>
@@ -138,9 +129,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/ItemGenerateDelegate.html" data-type="entity-link" >ItemGenerateDelegate</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/MenuItemConfig.html" data-type="entity-link" >MenuItemConfig</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/MenuProps.html" data-type="entity-link" >MenuProps</a>
