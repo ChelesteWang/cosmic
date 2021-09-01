@@ -61,6 +61,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/AppearanceService.html" data-type="entity-link" >AppearanceService</a>
                             </li>
                             <li class="link">
+                                <a href="classes/Base.html" data-type="entity-link" >Base</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/BaseMenu.html" data-type="entity-link" >BaseMenu</a>
                             </li>
                             <li class="link">
@@ -70,7 +73,22 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ColorRef.html" data-type="entity-link" >ColorRef</a>
                             </li>
                             <li class="link">
+                                <a href="classes/Context.html" data-type="entity-link" >Context</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/Controller.html" data-type="entity-link" >Controller</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CornerMixin.html" data-type="entity-link" >CornerMixin</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/DefaultShapeMixin.html" data-type="entity-link" >DefaultShapeMixin</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/GeometryMixin.html" data-type="entity-link" >GeometryMixin</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/LayoutMixin.html" data-type="entity-link" >LayoutMixin</a>
                             </li>
                             <li class="link">
                                 <a href="classes/MenuBar.html" data-type="entity-link" >MenuBar</a>
@@ -83,6 +101,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/PropertyPanel.html" data-type="entity-link" >PropertyPanel</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/Rectangle.html" data-type="entity-link" >Rectangle</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/RectangleCornerMixin.html" data-type="entity-link" >RectangleCornerMixin</a>
                             </li>
                             <li class="link">
                                 <a href="classes/ResourceExplorer.html" data-type="entity-link" >ResourceExplorer</a>
