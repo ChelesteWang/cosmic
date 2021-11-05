@@ -1213,7 +1213,7 @@ export default class SplitItemView extends View {
   public setContent(contentView: HTMLElement): SplitItemView {
     this.contentView &#x3D; contentView;
     this.root.classList.add(&#x27;split-item&#x27;, &#x27;flex&#x27;);
-    contentView.classList.add(&#x27;flex&#x27;, &#x27;flex-1&#x27;);
+    contentView.classList.add(&#x27;flex&#x27;, &#x27;flex-1&#x27;, &#x27;w-full&#x27;);
     return this.prepend(contentView);
   }
 
