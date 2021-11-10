@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>cosmic-design documentation</title>
+        <title>Application documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,7 +14,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">cosmic-design documentation</a>
+            <a href="../" class="navbar-brand">Application documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -131,7 +131,7 @@
                             <a href="#SecondaryLabelColor" title="src/core/browser/style/ui-color.ts" ><b>SecondaryLabelColor</b>&nbsp;&nbsp;&nbsp;(src/.../ui-color.ts)</a>
                         </li>
                         <li>
-                            <a href="#settings" title="src/app/utils/settings.ts" ><b>settings</b>&nbsp;&nbsp;&nbsp;(src/.../settings.ts)</a>
+                            <a href="#settings" title="src/app/utils/settings.ts" class="deprecated-name"><b>settings</b>&nbsp;&nbsp;&nbsp;(src/.../settings.ts)</a>
                         </li>
                         <li>
                             <a href="#SystemBlueColor" title="src/core/browser/style/ui-color.ts" ><b>SystemBlueColor</b>&nbsp;&nbsp;&nbsp;(src/.../ui-color.ts)</a>
@@ -741,7 +741,6 @@
     webPreferences: {
       devTools: isProd ? false : true,
       contextIsolation: true,
-      enableRemoteModule: false,
       // preload: join(__dirname, &#x27;preload.js&#x27;),
     },
   });
@@ -750,7 +749,7 @@
     // process.env.NODE_ENV &#x3D;&#x3D;&#x3D; &quot;production&quot;
     isProd
       ? // in production, use the statically build version of our application
-        &#x60;file://${join(__dirname, &#x27;dist/workbench/desktop/&#x27;, &#x27;index.html&#x27;)}&#x60;
+        &#x60;file://${join(__dirname, &#x27;../workbench/desktop/index.html&#x27;)}&#x60;
       : // in dev, target the host and port of the local rollup web server
         &#x27;http://localhost:5000/workbench/desktop/&#x27;;
 
@@ -990,9 +989,14 @@
                 <td class="col-md-4">
                     <a name="settings"></a>
                     <span class="name">
-                        <span ><b>settings</b></span>
+                        <span class="deprecated-name"><b>settings</b></span>
                         <a href="#settings"><span class="icon ion-ios-link"></span></a>
                     </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4 deprecated">
+                    — Cause bundle error: Cannot find module 'ajv/dist/compile/codegen'
                 </td>
             </tr>
                 <tr>
