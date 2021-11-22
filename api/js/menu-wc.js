@@ -16,7 +16,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
         <nav>
             <ul class="list">
                 <li class="title">
-                    <a href="index.html" data-type="index-link">Application documentation</a>
+                    <a href="index.html" data-type="index-link">cosmic documentation</a>
                 </li>
 
                 <li class="divider"></li>
@@ -143,7 +143,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
+                                <a href="interfaces/AddParams.html" data-type="entity-link" >AddParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/classConfig.html" data-type="entity-link" >classConfig</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/GetParams.html" data-type="entity-link" >GetParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IAuthState.html" data-type="entity-link" >IAuthState</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ILoginData.html" data-type="entity-link" >ILoginData</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ISettings.html" data-type="entity-link" >ISettings</a>

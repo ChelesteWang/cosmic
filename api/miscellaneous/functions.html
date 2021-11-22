@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Application documentation</title>
+        <title>cosmic documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,7 +14,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">Application documentation</a>
+            <a href="../" class="navbar-brand">cosmic documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -59,19 +59,34 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#getCanvasKit" title="src/modules/draw-canvas/skia-wasm/canvas-kit.ts" ><b>getCanvasKit</b>&nbsp;&nbsp;&nbsp;(src/.../canvas-kit.ts)</a>
+                            <a href="#addAuthToOperation" title="src/modules/resource-explorer/auth/exchange/auth.ts" ><b>addAuthToOperation</b>&nbsp;&nbsp;&nbsp;(src/.../auth.ts)</a>
                         </li>
                         <li>
-                            <a href="#getCompleteRoute" title="src/modules/resource-explorer/routes.ts" ><b>getCompleteRoute</b>&nbsp;&nbsp;&nbsp;(src/.../routes.ts)</a>
+                            <a href="#getAuth" title="src/modules/resource-explorer/auth/exchange/auth.ts" ><b>getAuth</b>&nbsp;&nbsp;&nbsp;(src/.../auth.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getCanvasKit" title="src/modules/draw-canvas/skia-wasm/canvas-kit.ts" ><b>getCanvasKit</b>&nbsp;&nbsp;&nbsp;(src/.../canvas-kit.ts)</a>
                         </li>
                         <li>
                             <a href="#inject" title="src/core/parts/ioc/inject.ts" ><b>inject</b>&nbsp;&nbsp;&nbsp;(src/.../inject.ts)</a>
                         </li>
                         <li>
+                            <a href="#login" title="src/modules/resource-explorer/auth/user.ts" ><b>login</b>&nbsp;&nbsp;&nbsp;(src/.../user.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#logout" title="src/modules/resource-explorer/auth/user.ts" ><b>logout</b>&nbsp;&nbsp;&nbsp;(src/.../user.ts)</a>
+                        </li>
+                        <li>
                             <a href="#makeColor" title="src/core/browser/style/ui-color.ts" ><b>makeColor</b>&nbsp;&nbsp;&nbsp;(src/.../ui-color.ts)</a>
                         </li>
                         <li>
+                            <a href="#routeFor" title="src/modules/resource-explorer/routes.ts" ><b>routeFor</b>&nbsp;&nbsp;&nbsp;(src/.../routes.ts)</a>
+                        </li>
+                        <li>
                             <a href="#urlFor" title="src/modules/resource-explorer/routes.ts" ><b>urlFor</b>&nbsp;&nbsp;&nbsp;(src/.../routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#willAuthError" title="src/modules/resource-explorer/auth/exchange/auth.ts" ><b>willAuthError</b>&nbsp;&nbsp;&nbsp;(src/.../auth.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -80,7 +95,161 @@
     </table>
 </section>
 
-    <h3>src/modules/draw-canvas/skia-wasm/canvas-kit.ts</h3>
+    <h3>src/modules/resource-explorer/auth/exchange/auth.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addAuthToOperation"></a>
+                    <span class="name">
+                        <span ><b>addAuthToOperation</b></span>
+                        <a href="#addAuthToOperation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addAuthToOperation(params)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAuth"></a>
+                    <span class="name">
+                        <span ><b>getAuth</b></span>
+                        <a href="#getAuth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAuth(params)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="willAuthError"></a>
+                    <span class="name">
+                        <span ><b>willAuthError</b></span>
+                        <a href="#willAuthError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>willAuthError(undefined)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/modules/draw-canvas/skia-wasm/canvas-kit.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -113,22 +282,220 @@
             </tr>
         </tbody>
     </table>
+</section>    <h3>src/core/parts/ioc/inject.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inject"></a>
+                    <span class="name">
+                        <span ><b>inject</b></span>
+                        <a href="#inject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>inject(token)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>token</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/modules/resource-explorer/auth/user.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="login"></a>
+                    <span class="name">
+                        <span ><b>login</b></span>
+                        <a href="#login"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>login(undefined)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logout()</code>
+                </td>
+            </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>    <h3>src/core/browser/style/ui-color.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="makeColor"></a>
+                    <span class="name">
+                        <span ><b>makeColor</b></span>
+                        <a href="#makeColor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>makeColor(anyColorHex, lightColorHex?, darkColorHex?)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>anyColorHex</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>lightColorHex</td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>darkColorHex</td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    <h3>src/modules/resource-explorer/routes.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getCompleteRoute"></a>
+                    <a name="routeFor"></a>
                     <span class="name">
-                        <span ><b>getCompleteRoute</b></span>
-                        <a href="#getCompleteRoute"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>routeFor</b></span>
+                        <a href="#routeFor"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getCompleteRoute(route)</code>
+<code>routeFor(route)</code>
                 </td>
             </tr>
 
@@ -235,130 +602,6 @@
                     </div>
                     <div class="io-description">
                         
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>    <h3>src/core/parts/ioc/inject.ts</h3>
-    <section>
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="inject"></a>
-                    <span class="name">
-                        <span ><b>inject</b></span>
-                        <a href="#inject"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>inject(token)</code>
-                </td>
-            </tr>
-
-
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>token</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>    <h3>src/core/browser/style/ui-color.ts</h3>
-    <section>
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="makeColor"></a>
-                    <span class="name">
-                        <span ><b>makeColor</b></span>
-                        <a href="#makeColor"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>makeColor(anyColorHex, lightColorHex?, darkColorHex?)</code>
-                </td>
-            </tr>
-
-
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>anyColorHex</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>lightColorHex</td>
-
-                                    <td>
-                                        Yes
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>darkColorHex</td>
-
-                                    <td>
-                                        Yes
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
                     </div>
                 </td>
             </tr>

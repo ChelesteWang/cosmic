@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Application documentation</title>
+        <title>cosmic documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,7 +14,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">Application documentation</a>
+            <a href="../" class="navbar-brand">cosmic documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -176,11 +176,13 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export enum ROUTES_ENUM {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export enum ROUTES {
   INDEX,
   TEAM_DETAIL,
   PROJECT_DETAIL,
   DESIGN_ATOM,
+  LOGIN,
+  DEFAULT
 }
 
 interface RoutesValue {
@@ -188,40 +190,53 @@ interface RoutesValue {
   paramNames: string[];
 }
 
-export const ROUTES: { [key in ROUTES_ENUM]: RoutesValue } &#x3D; {
-  [ROUTES_ENUM.INDEX]: {
-    path: &#x27;/&#x27;,
+const ROUTES_CONFIG: { [key in ROUTES]: RoutesValue } &#x3D; {
+  [ROUTES.DEFAULT]: {
+    path: &#x27;*&#x27;,
     paramNames: [],
   },
-  [ROUTES_ENUM.TEAM_DETAIL]: {
+  [ROUTES.INDEX]: {
+    path: &#x27;&#x27;,
+    paramNames: [],
+  },
+  [ROUTES.TEAM_DETAIL]: {
     path: &#x27;/team&#x27;,
     paramNames: [&#x27;teamId&#x27;],
   },
-  [ROUTES_ENUM.PROJECT_DETAIL]: {
+  [ROUTES.PROJECT_DETAIL]: {
     path: &#x27;/project&#x27;,
     paramNames: [&#x27;projectId&#x27;],
   },
-  [ROUTES_ENUM.DESIGN_ATOM]: {
+  [ROUTES.DESIGN_ATOM]: {
     path: &#x27;/design/atom&#x27;,
     paramNames: [&#x27;teamId&#x27;],
   },
+  [ROUTES.LOGIN]: {
+    path: &#x27;/login&#x27;,
+    paramNames: [],
+  },
 };
 
-export function getCompleteRoute(route: ROUTES_ENUM): string {
-  const { path, paramNames } &#x3D; ROUTES[route];
+export function routeFor(route: ROUTES): string {
+  const { path, paramNames } &#x3D; ROUTES_CONFIG[route];
   const paramPath &#x3D; paramNames.map((param: string) &#x3D;&gt; &#x60;:${param}&#x60;).join(&#x27;/&#x27;);
   return &#x60;${path}/${paramPath}&#x60;;
 }
 
 // TODO: validate params, recognize params
-export function urlFor(route: ROUTES_ENUM, params?: Record&lt;string, unknown&gt;): string {
-  const { path, paramNames } &#x3D; ROUTES[route];
+export function urlFor(route: ROUTES, params?: Record&lt;string, unknown&gt;): string {
+  if (route &#x3D;&#x3D;&#x3D; ROUTES.INDEX) {
+    return &#x27;/&#x27;;
+  }
+  const { path, paramNames } &#x3D; ROUTES_CONFIG[route];
   if (paramNames.length &#x3D;&#x3D;&#x3D; 0 || !params) {
     return path;
   }
   const result &#x3D; paramNames.map((paramName: string) &#x3D;&gt; params[paramName] || paramName);
   return &#x60;${path}/${result.join(&#x27;/&#x27;)}&#x60;;
 }
+
+
 </code></pre>
     </div>
 </div>

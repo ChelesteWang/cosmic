@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Application documentation</title>
+        <title>cosmic documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,7 +14,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">Application documentation</a>
+            <a href="../" class="navbar-brand">cosmic documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -83,6 +83,9 @@
                             <a href="#ControlHighlightColor" title="src/core/browser/style/ui-color.ts" ><b>ControlHighlightColor</b>&nbsp;&nbsp;&nbsp;(src/.../ui-color.ts)</a>
                         </li>
                         <li>
+                            <a href="#createColor" title="src/modules/resource-explorer/design/api/color.ts" ><b>createColor</b>&nbsp;&nbsp;&nbsp;(src/.../color.ts)</a>
+                        </li>
+                        <li>
                             <a href="#createProject" title="src/modules/resource-explorer/project/api.ts" ><b>createProject</b>&nbsp;&nbsp;&nbsp;(src/.../api.ts)</a>
                         </li>
                         <li>
@@ -90,6 +93,12 @@
                         </li>
                         <li>
                             <a href="#defaultWeightMap" title="src/core/browser/class-builder.ts" ><b>defaultWeightMap</b>&nbsp;&nbsp;&nbsp;(src/.../class-builder.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#didAuthError" title="src/modules/resource-explorer/auth/exchange/auth.ts" ><b>didAuthError</b>&nbsp;&nbsp;&nbsp;(src/.../auth.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#exchanges" title="src/modules/resource-explorer/auth/exchange/index.ts" ><b>exchanges</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                         <li>
                             <a href="#FourthBgColor" title="src/core/browser/style/ui-color.ts" ><b>FourthBgColor</b>&nbsp;&nbsp;&nbsp;(src/.../ui-color.ts)</a>
@@ -119,10 +128,13 @@
                             <a href="#notification" title="src/app/index.ts" ><b>notification</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                         <li>
+                            <a href="#queryColors" title="src/modules/resource-explorer/design/api/color.ts" ><b>queryColors</b>&nbsp;&nbsp;&nbsp;(src/.../color.ts)</a>
+                        </li>
+                        <li>
                             <a href="#queryProjects" title="src/modules/resource-explorer/project/api.ts" ><b>queryProjects</b>&nbsp;&nbsp;&nbsp;(src/.../api.ts)</a>
                         </li>
                         <li>
-                            <a href="#ROUTES" title="src/modules/resource-explorer/routes.ts" ><b>ROUTES</b>&nbsp;&nbsp;&nbsp;(src/.../routes.ts)</a>
+                            <a href="#ROUTES_CONFIG" title="src/modules/resource-explorer/routes.ts" ><b>ROUTES_CONFIG</b>&nbsp;&nbsp;&nbsp;(src/.../routes.ts)</a>
                         </li>
                         <li>
                             <a href="#SecondaryBgColor" title="src/core/browser/style/ui-color.ts" ><b>SecondaryBgColor</b>&nbsp;&nbsp;&nbsp;(src/.../ui-color.ts)</a>
@@ -649,6 +661,77 @@
         </tbody>
     </table>
 </section>
+    <h3>src/modules/resource-explorer/design/api/color.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createColor"></a>
+                    <span class="name">
+                        <span ><b>createColor</b></span>
+                        <a href="#createColor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {
+  return mutation&lt;{ createColor: { id: string } }, { color: CreateColorDTO }&gt;({
+    query: &#x60;
+      mutation ($color: CreateColorDTO!) {
+        createColor(color: $color) {
+          id,
+        }
+      }
+    &#x60;,
+  });
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="queryColors"></a>
+                    <span class="name">
+                        <span ><b>queryColors</b></span>
+                        <a href="#queryColors"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(color: QueryColorDTO) &#x3D;&gt; {
+  return operationStore&lt;{ colors: Color[] }, { color: QueryColorDTO }&gt;(
+    &#x60;
+    query ($color: QueryColorDTO) {
+      colors(color: $color) {
+        id,
+        color,
+        team,
+        variant {
+          light,
+          dark
+        }
+      }
+    }
+  &#x60;,
+    { color },
+    { requestPolicy: &#x27;cache-first&#x27; }
+  );
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>src/modules/resource-explorer/project/api.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -739,7 +822,7 @@
     minHeight: 600,
     minWidth: 960,
     webPreferences: {
-      devTools: isProd ? false : true,
+      devTools: true,
       contextIsolation: true,
       // preload: join(__dirname, &#x27;preload.js&#x27;),
     },
@@ -754,7 +837,7 @@
         &#x27;http://localhost:5000/workbench/desktop/&#x27;;
 
   mainWindow.loadURL(url).catch((err: any) &#x3D;&gt; {
-    logger.error(JSON.stringify(err));
+    // logger.error(JSON.stringify(err));
     app.quit();
   });
 
@@ -869,6 +952,56 @@
         </tbody>
     </table>
 </section>
+    <h3>src/modules/resource-explorer/auth/exchange/auth.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="didAuthError"></a>
+                    <span class="name">
+                        <span ><b>didAuthError</b></span>
+                        <a href="#didAuthError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>({ error }: { error: CombinedError }) &#x3D;&gt; {
+  return error.graphQLErrors.some(e &#x3D;&gt; e.extensions?.code &#x3D;&#x3D;&#x3D; &#x27;UNAUTHENTICATED&#x27;);
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/modules/resource-explorer/auth/exchange/index.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="exchanges"></a>
+                    <span class="name">
+                        <span ><b>exchanges</b></span>
+                        <a href="#exchanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>authExchange({
+  getAuth, addAuthToOperation, willAuthError, didAuthError,
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>src/app/utils/logger.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -941,10 +1074,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ROUTES"></a>
+                    <a name="ROUTES_CONFIG"></a>
                     <span class="name">
-                        <span ><b>ROUTES</b></span>
-                        <a href="#ROUTES"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>ROUTES_CONFIG</b></span>
+                        <a href="#ROUTES_CONFIG"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -957,21 +1090,29 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
-  [ROUTES_ENUM.INDEX]: {
-    path: &#x27;/&#x27;,
+  [ROUTES.DEFAULT]: {
+    path: &#x27;*&#x27;,
     paramNames: [],
   },
-  [ROUTES_ENUM.TEAM_DETAIL]: {
+  [ROUTES.INDEX]: {
+    path: &#x27;&#x27;,
+    paramNames: [],
+  },
+  [ROUTES.TEAM_DETAIL]: {
     path: &#x27;/team&#x27;,
     paramNames: [&#x27;teamId&#x27;],
   },
-  [ROUTES_ENUM.PROJECT_DETAIL]: {
+  [ROUTES.PROJECT_DETAIL]: {
     path: &#x27;/project&#x27;,
     paramNames: [&#x27;projectId&#x27;],
   },
-  [ROUTES_ENUM.DESIGN_ATOM]: {
+  [ROUTES.DESIGN_ATOM]: {
     path: &#x27;/design/atom&#x27;,
     paramNames: [&#x27;teamId&#x27;],
+  },
+  [ROUTES.LOGIN]: {
+    path: &#x27;/login&#x27;,
+    paramNames: [],
   },
 }</code>
                     </td>
